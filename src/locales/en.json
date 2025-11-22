@@ -1,7 +1,4 @@
 {
-  "brand": {
-    "wordplayTitle": "Origin of the name:"
-  },
   "nav": {
     "home": "Home",
     "services": "Services",
@@ -16,7 +13,8 @@
     "forWho": "For small businesses and local service providers",
     "whatYouGet": "More inquiries, trust, professional online presence",
     "whatsDifferent": "Personal attention, transparent pricing, quick turnaround",
-    "cta": "Request a Quote Now"
+    "cta": "Request a Quote Now",
+    "soleProprietor": "Dominik Dobos · Sole Proprietor"
   },
   "services": {
     "title": "Services",
@@ -185,7 +183,8 @@
       "title": "Additional Modifications",
       "description": "Further modifications, custom development",
       "price": "From 8,000 HUF/hour"
-    }
+    },
+    "requestQuote": "Get Quote"
   },
   "faq": {
     "title": "Frequently Asked Questions",
@@ -245,10 +244,15 @@
   "contact": {
     "title": "Request a Quote",
     "subtitle": "Tell me what you need, and I'll respond within 1 business day!",
+    "info": {
+      "phone": "Phone",
+      "location": "Location"
+    },
     "form": {
       "name": "Your Name",
       "email": "Your Email",
       "service": "Which service are you interested in?",
+      "servicePlaceholder": "Choose...",
       "serviceOptions": {
         "website": "Complete Website Creation",
         "redesign": "Website Redesign",
@@ -261,14 +265,97 @@
       "submit": "Request Quote",
       "sending": "Sending...",
       "success": "Thank you for your message! I'll be in touch soon.",
-      "error": "An error occurred. Please email me directly."
+      "error": "An error occurred. Please email me directly.",
+      "privacyConsent": "I accept the data processing according to the Privacy Policy *",
+      "privacyConsentError": "You must accept the privacy policy to continue."
     },
     "note": "Note: The contact form is still under development. Currently just a placeholder function."
+  },
+  "legal": {
+    "impresszum": {
+      "title": "Imprint",
+      "subtitle": "Legal information about the business",
+      "businessName": "Business Name",
+      "businessNameValue": "Dobos Dominik Sole Proprietor",
+      "ownerName": "Owner Name",
+      "ownerNameValue": "Dobos Dominik",
+      "registrationNumber": "Business Registration Number",
+      "registrationNumberValue": "60722005",
+      "taxNumber": "Tax Number",
+      "taxNumberValue": "91250867-1-43",
+      "address": "Business Address",
+      "addressValue": "1239 Budapest, Tengelice utca 11.",
+      "phone": "Phone",
+      "euDispute": "The European Commission's online dispute resolution platform is available at:"
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "subtitle": "GDPR-compliant data protection policy",
+      "lastUpdated": "Last updated",
+      "dataController": {
+        "title": "1. Data Controller",
+        "content": "The data controller is Dobos Dominik Sole Proprietor (hereinafter: Data Controller). Contact: info@dobosdev.hu, +36 20 221 5874. The Data Controller is responsible for the processing and protection of personal data."
+      },
+      "dataCollected": {
+        "title": "2. Personal Data Processed",
+        "intro": "Through the contact form, we collect the following data:",
+        "name": "Name",
+        "email": "Email address",
+        "service": "Area of interest (service type)",
+        "message": "Message content"
+      },
+      "purpose": {
+        "title": "3. Purpose of Data Processing",
+        "content": "Data collection is done solely to contact inquirers and respond to their requests. The data is used exclusively for preparing quotes and maintaining contact."
+      },
+      "legalBasis": {
+        "title": "4. Legal Basis for Processing",
+        "content": "The legal basis for data processing is the consent of the data subject (GDPR Article 6(1)(a)) and the legitimate interest of the Data Controller (GDPR Article 6(1)(f)) in maintaining business relationships and responding to inquiries."
+      },
+      "retention": {
+        "title": "5. Data Retention Period",
+        "content": "Personal data provided through the contact form is stored until consent is withdrawn or for a maximum of 2 years. After this period, the data is deleted, unless otherwise required by law (e.g., accounting obligations)."
+      },
+      "thirdParty": {
+        "title": "6. Data Processors",
+        "intro": "During data processing, we use the following third-party service:",
+        "web3forms": "Email sending service that forwards data submitted through the form to the Data Controller's email address. The processor's privacy policy:"
+      },
+      "rights": {
+        "title": "7. Data Subject Rights",
+        "intro": "Under GDPR, the data subject has the following rights:",
+        "access": "Right of access: you can request information about what personal data the Data Controller processes",
+        "rectification": "Right to rectification: you can request correction of inaccurate data",
+        "erasure": "Right to erasure (\"right to be forgotten\"): you can request deletion of your data",
+        "restriction": "Right to restriction: you can request restriction of data processing",
+        "portability": "Right to data portability: you can request your data in a structured, machine-readable format",
+        "objection": "Right to object: you can object to the processing of your personal data",
+        "withdraw": "Withdrawal of consent: you can withdraw your consent to data processing at any time"
+      },
+      "security": {
+        "title": "8. Data Security",
+        "content": "The Data Controller applies appropriate technical and organizational measures to protect personal data, including protection against unauthorized access, modification, disclosure, or destruction."
+      },
+      "cookies": {
+        "title": "9. Cookies",
+        "content": "The website currently does not use cookies. If we introduce analytical tools (e.g., Google Analytics) in the future, we will provide separate information and options for cookie management."
+      },
+      "changes": {
+        "title": "10. Changes to the Privacy Policy",
+        "content": "The Data Controller reserves the right to modify this policy at any time. Changes will be communicated to data subjects through the website."
+      },
+      "contact": {
+        "title": "11. Contact for Data Protection Questions",
+        "content": "If you have questions about data processing or wish to exercise any of your rights, please contact us at:",
+        "phone": "Phone"
+      }
+    }
   },
   "footer": {
     "description": "Professional websites for small businesses – with clear pricing and quick turnaround.",
     "rights": "All rights reserved.",
-    "quickLinks": "Quick Links"
+    "quickLinks": "Quick Links",
+    "legalInfo": "Legal Information",
+    "businessName": "Dobos Dominik Sole Proprietor"
   }
 }
-

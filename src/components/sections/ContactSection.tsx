@@ -1,33 +1,44 @@
-import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { AnimatedSection } from '@/components/common/AnimatedSection';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Card, CardContent } from '@/components/ui/card';
-import { Mail, Phone, MapPin, AlertCircle, CheckCircle2 } from 'lucide-react';
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { AnimatedSection } from "@/components/common/AnimatedSection";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Card, CardContent } from "@/components/ui/card";
+import { Mail, Phone, MapPin, AlertCircle, CheckCircle2 } from "lucide-react";
+import { PrivacyPolicyModal } from "@/components/modals/PrivacyPolicyModal";
 
 export function ContactSection() {
   const { t } = useTranslation();
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    service: '',
-    message: '',
+    name: "",
+    email: "",
+    service: "",
+    message: "",
   });
+  const [privacyConsent, setPrivacyConsent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
+  const [privacyModalOpen, setPrivacyModalOpen] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!privacyConsent) {
+      alert(t("contact.form.privacyConsentError"));
+      return;
+    }
+
     setIsSubmitting(true);
-    setSubmitStatus('idle');
+    setSubmitStatus("idle");
 
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           access_key: import.meta.env.VITE_WEB3FORMS_KEY,
@@ -42,25 +53,30 @@ export function ContactSection() {
       const data = await response.json();
 
       if (data.success) {
-        setSubmitStatus('success');
+        setSubmitStatus("success");
         setFormData({
-          name: '',
-          email: '',
-          service: '',
-          message: '',
+          name: "",
+          email: "",
+          service: "",
+          message: "",
         });
+        setPrivacyConsent(false);
       } else {
-        setSubmitStatus('error');
+        setSubmitStatus("error");
       }
     } catch (error) {
-      console.error('Form submission error:', error);
-      setSubmitStatus('error');
+      console.error("Form submission error:", error);
+      setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -72,10 +88,10 @@ export function ContactSection() {
       <div className="container mx-auto max-w-5xl relative z-10">
         <AnimatedSection className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            {t('contact.title')}
+            {t("contact.title")}
           </h2>
           <p className="text-lg text-muted-foreground">
-            {t('contact.subtitle')}
+            {t("contact.subtitle")}
           </p>
         </AnimatedSection>
 
@@ -92,7 +108,10 @@ export function ContactSection() {
                       </div>
                       <div>
                         <div className="font-semibold">Email</div>
-                        <a href="mailto:info@dobosdev.hu" className="text-sm text-muted-foreground hover:text-primary">
+                        <a
+                          href="mailto:info@dobosdev.hu"
+                          className="text-sm text-muted-foreground hover:text-primary"
+                        >
                           info@dobosdev.hu
                         </a>
                       </div>
@@ -102,9 +121,12 @@ export function ContactSection() {
                         <Phone className="h-6 w-6 text-primary" />
                       </div>
                       <div>
-                        <div className="font-semibold">Telefon</div>
-                        <a href="tel:+36301234567" className="text-sm text-muted-foreground hover:text-primary">
-                          +36 30 123 4567
+                        <div className="font-semibold">{t("contact.info.phone")}</div>
+                        <a
+                          href="tel:+36202215874"
+                          className="text-sm text-muted-foreground hover:text-primary"
+                        >
+                          +36 20 221 5874
                         </a>
                       </div>
                     </div>
@@ -113,7 +135,7 @@ export function ContactSection() {
                         <MapPin className="h-6 w-6 text-primary" />
                       </div>
                       <div>
-                        <div className="font-semibold">Helyszín</div>
+                        <div className="font-semibold">{t("contact.info.location")}</div>
                         <div className="text-sm text-muted-foreground">
                           Budapest, Hungary
                         </div>
@@ -122,7 +144,6 @@ export function ContactSection() {
                   </div>
                 </CardContent>
               </Card>
-
             </div>
           </AnimatedSection>
 
@@ -132,8 +153,11 @@ export function ContactSection() {
               <CardContent className="pt-6">
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium mb-2">
-                      {t('contact.form.name')}
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium mb-2"
+                    >
+                      {t("contact.form.name")}
                     </label>
                     <Input
                       id="name"
@@ -145,8 +169,11 @@ export function ContactSection() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-2">
-                      {t('contact.form.email')}
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium mb-2"
+                    >
+                      {t("contact.form.email")}
                     </label>
                     <Input
                       id="email"
@@ -159,8 +186,11 @@ export function ContactSection() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="service" className="block text-sm font-medium mb-2">
-                      {t('contact.form.service')}
+                    <label
+                      htmlFor="service"
+                      className="block text-sm font-medium mb-2"
+                    >
+                      {t("contact.form.service")}
                     </label>
                     <select
                       id="service"
@@ -171,18 +201,33 @@ export function ContactSection() {
                       disabled={isSubmitting}
                       required
                     >
-                      <option value="">Válassz...</option>
-                      <option value="website">{t('contact.form.serviceOptions.website')}</option>
-                      <option value="redesign">{t('contact.form.serviceOptions.redesign')}</option>
-                      <option value="landing">{t('contact.form.serviceOptions.landing')}</option>
-                      <option value="maintenance">{t('contact.form.serviceOptions.maintenance')}</option>
-                      <option value="seo">{t('contact.form.serviceOptions.seo')}</option>
-                      <option value="other">{t('contact.form.serviceOptions.other')}</option>
+                      <option value="">{t("contact.form.servicePlaceholder")}</option>
+                      <option value="website">
+                        {t("contact.form.serviceOptions.website")}
+                      </option>
+                      <option value="redesign">
+                        {t("contact.form.serviceOptions.redesign")}
+                      </option>
+                      <option value="landing">
+                        {t("contact.form.serviceOptions.landing")}
+                      </option>
+                      <option value="maintenance">
+                        {t("contact.form.serviceOptions.maintenance")}
+                      </option>
+                      <option value="seo">
+                        {t("contact.form.serviceOptions.seo")}
+                      </option>
+                      <option value="other">
+                        {t("contact.form.serviceOptions.other")}
+                      </option>
                     </select>
                   </div>
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium mb-2">
-                      {t('contact.form.message')}
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium mb-2"
+                    >
+                      {t("contact.form.message")}
                     </label>
                     <Textarea
                       id="message"
@@ -195,14 +240,41 @@ export function ContactSection() {
                     />
                   </div>
 
+                  {/* Privacy Consent Checkbox */}
+                  <div className="flex items-start gap-3">
+                    <input
+                      type="checkbox"
+                      id="privacyConsent"
+                      checked={privacyConsent}
+                      onChange={(e) => setPrivacyConsent(e.target.checked)}
+                      disabled={isSubmitting}
+                      className="mt-1 h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary"
+                      required
+                    />
+                    <label
+                      htmlFor="privacyConsent"
+                      className="text-sm text-muted-foreground"
+                    >
+                      {t("contact.form.privacyConsent").split("[")[0]}
+                      <button
+                        type="button"
+                        className="text-primary hover:underline"
+                        onClick={() => setPrivacyModalOpen(true)}
+                      >
+                        {t("legal.privacy.title")}
+                      </button>
+                      {t("contact.form.privacyConsent").split("]")[1]}
+                    </label>
+                  </div>
+
                   {/* Success Message */}
-                  {submitStatus === 'success' && (
+                  {submitStatus === "success" && (
                     <Card className="bg-green-50 dark:bg-green-950/20 border-green-200 dark:border-green-900">
                       <CardContent className="pt-6">
                         <div className="flex gap-3">
                           <CheckCircle2 className="h-5 w-5 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" />
                           <p className="text-sm text-green-800 dark:text-green-200">
-                            {t('contact.form.success')}
+                            {t("contact.form.success")}
                           </p>
                         </div>
                       </CardContent>
@@ -210,21 +282,27 @@ export function ContactSection() {
                   )}
 
                   {/* Error Message */}
-                  {submitStatus === 'error' && (
+                  {submitStatus === "error" && (
                     <Card className="bg-red-50 dark:bg-red-950/20 border-red-200 dark:border-red-900">
                       <CardContent className="pt-6">
                         <div className="flex gap-3">
                           <AlertCircle className="h-5 w-5 text-red-600 dark:text-red-400 flex-shrink-0 mt-0.5" />
                           <p className="text-sm text-red-800 dark:text-red-200">
-                            {t('contact.form.error')}
+                            {t("contact.form.error")}
                           </p>
                         </div>
                       </CardContent>
                     </Card>
                   )}
 
-                  <Button type="submit" className="w-full" disabled={isSubmitting}>
-                    {isSubmitting ? t('contact.form.sending') : t('contact.form.submit')}
+                  <Button
+                    type="submit"
+                    className="w-full"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting
+                      ? t("contact.form.sending")
+                      : t("contact.form.submit")}
                   </Button>
                 </form>
               </CardContent>
@@ -232,7 +310,12 @@ export function ContactSection() {
           </AnimatedSection>
         </div>
       </div>
+
+      {/* Privacy Policy Modal */}
+      <PrivacyPolicyModal
+        open={privacyModalOpen}
+        onOpenChange={setPrivacyModalOpen}
+      />
     </section>
   );
 }
-

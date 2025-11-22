@@ -34,7 +34,7 @@ export function HeroSection() {
               transition={{ delay: 0.2 }}
               className="text-sm md:text-sm text-muted-foreground/80 mb-3 tracking-wide uppercase"
             >
-              Dobos Dominik · Egyéni Vállalkozó
+              {t("hero.soleProprietor")}
             </motion.p>
 
             {/* Main DobosDEV Logo */}
@@ -54,9 +54,9 @@ export function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
-              className="text-sm md:text-sm text-muted-foreground/60 tracking-widest"
+              className="text-sm md:text-sm text-muted-foreground/70 tracking-widest"
             >
-              D · E · V
+              D · E · V · E · L · O · P · E · R
             </motion.p>
           </motion.div>
 

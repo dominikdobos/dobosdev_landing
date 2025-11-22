@@ -1,11 +1,16 @@
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { ImpresszumModal } from "@/components/modals/ImpresszumModal";
+import { PrivacyPolicyModal } from "@/components/modals/PrivacyPolicyModal";
 
 const navItems = ["home", "services", "process", "pricing", "faq", "contact"];
 
 export function Footer() {
   const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
+  const [impresszumOpen, setImpresszumOpen] = useState(false);
+  const [privacyOpen, setPrivacyOpen] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -26,7 +31,7 @@ export function Footer() {
               <span className="text-primary">EV</span>
             </h3>
             <p className="text-xs text-muted-foreground mb-3 italic">
-              Dobos Dominik Egyéni Vállalkozó
+              {t("footer.businessName")}
             </p>
             <p className="text-sm text-muted-foreground">
               {t("footer.description")}
@@ -65,16 +70,37 @@ export function Footer() {
               <div className="flex items-center gap-2">
                 <Phone className="h-4 w-4 text-primary" />
                 <a
-                  href="tel:+36301234567"
+                  href="tel:+36202215874"
                   className="hover:text-primary transition-colors"
                 >
-                  +36 30 123 4567
+                  +36 20 221 5874
                 </a>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4 text-primary" />
                 <span>Budapest, Hungary</span>
               </div>
+            </div>
+
+            {/* Legal Links */}
+            <div className="mt-6">
+              <h4 className="font-semibold mb-3 text-sm">
+                {t("footer.legalInfo")}
+              </h4>
+              <nav className="flex flex-col gap-2">
+                <button
+                  onClick={() => setImpresszumOpen(true)}
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors text-left"
+                >
+                  {t("legal.impresszum.title")}
+                </button>
+                <button
+                  onClick={() => setPrivacyOpen(true)}
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors text-left"
+                >
+                  {t("legal.privacy.title")}
+                </button>
+              </nav>
             </div>
           </div>
         </div>
@@ -85,6 +111,10 @@ export function Footer() {
           </p>
         </div>
       </div>
+
+      {/* Modals */}
+      <ImpresszumModal open={impresszumOpen} onOpenChange={setImpresszumOpen} />
+      <PrivacyPolicyModal open={privacyOpen} onOpenChange={setPrivacyOpen} />
     </footer>
   );
 }

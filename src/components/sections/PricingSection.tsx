@@ -84,12 +84,12 @@ export function PricingSection() {
                       </ul>
                     </CardContent>
                     <CardFooter className="pt-4 mt-auto">
-                      <Button 
-                        className="w-full" 
+                      <Button
+                        className="w-full"
                         variant={isPopular ? 'default' : 'outline'}
                         onClick={scrollToContact}
                       >
-                        Ajánlatot kérek
+                        {t('pricing.requestQuote')}
                       </Button>
                     </CardFooter>
                   </Card>

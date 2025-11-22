@@ -1,7 +1,4 @@
 {
-  "brand": {
-    "wordplayTitle": "A név eredete:"
-  },
   "nav": {
     "home": "Főoldal",
     "services": "Szolgáltatások",
@@ -16,7 +13,8 @@
     "forWho": "Kisvállalkozásoknak és helyi szolgáltatóknak",
     "whatYouGet": "Több megkeresés, bizalom, professzionális online jelenlét",
     "whatsDifferent": "Egyéni odafigyelés, átlátható árak, gyors határidő",
-    "cta": "Kérj ajánlatot most"
+    "cta": "Kérj ajánlatot most",
+    "soleProprietor": "Dobos Dominik · Egyéni Vállalkozó"
   },
   "services": {
     "title": "Szolgáltatások",
@@ -185,7 +183,8 @@
       "title": "További módosítások",
       "description": "További módosítások, egyedi fejlesztés",
       "price": "8 000 Ft/óra-tól"
-    }
+    },
+    "requestQuote": "Ajánlatot kérek"
   },
   "faq": {
     "title": "Gyakori kérdések",
@@ -245,10 +244,15 @@
   "contact": {
     "title": "Kérj ajánlatot",
     "subtitle": "Írd meg, mire van szükséged, és 1 munkanapon belül válaszolok!",
+    "info": {
+      "phone": "Telefon",
+      "location": "Helyszín"
+    },
     "form": {
       "name": "Neved",
       "email": "Email címed",
       "service": "Milyen szolgáltatás érdekel?",
+      "servicePlaceholder": "Válassz...",
       "serviceOptions": {
         "website": "Teljes weboldal készítés",
         "redesign": "Weboldal újratervezés",
@@ -261,14 +265,97 @@
       "submit": "Ajánlat kérése",
       "sending": "Küldés...",
       "success": "Köszönöm az üzeneted! Hamarosan jelentkezem.",
-      "error": "Hiba történt. Kérlek, írj közvetlenül az email címemre."
+      "error": "Hiba történt. Kérlek, írj közvetlenül az email címemre.",
+      "privacyConsent": "Elfogadom az Adatkezelési Tájékoztató szerinti adatkezelést *",
+      "privacyConsentError": "Az adatkezelési tájékoztató elfogadása kötelező."
     },
     "note": "Megjegyzés: A kapcsolatfelvételi űrlap még fejlesztés alatt áll. Jelenleg csak helyőrző funkció."
+  },
+  "legal": {
+    "impresszum": {
+      "title": "Impresszum",
+      "subtitle": "Jogi információk a vállalkozásról",
+      "businessName": "Cégnév",
+      "businessNameValue": "Dobos Dominik Egyéni Vállalkozó",
+      "ownerName": "Tulajdonos neve",
+      "ownerNameValue": "Dobos Dominik",
+      "registrationNumber": "Vállalkozói nyilvántartási szám",
+      "registrationNumberValue": "60722005",
+      "taxNumber": "Adószám",
+      "taxNumberValue": "91250867-1-43",
+      "address": "Székhely",
+      "addressValue": "1239 Budapest, Tengelice utca 11.",
+      "phone": "Telefon",
+      "euDispute": "Az Európai Bizottság online vitarendezési platformja elérhető itt:"
+    },
+    "privacy": {
+      "title": "Adatkezelési Tájékoztató",
+      "subtitle": "GDPR-kompatibilis adatvédelmi szabályzat",
+      "lastUpdated": "Utoljára frissítve",
+      "dataController": {
+        "title": "1. Adatkezelő",
+        "content": "Az adatkezelő Dobos Dominik Egyéni Vállalkozó (továbbiakban: Adatkezelő). Elérhetőség: info@dobosdev.hu, +36 20 221 5874. Az Adatkezelő felelős a személyes adatok kezeléséért és védelméért."
+      },
+      "dataCollected": {
+        "title": "2. Kezelt személyes adatok",
+        "intro": "A kapcsolatfelvételi űrlapon keresztül az alábbi adatokat gyűjtjük:",
+        "name": "Név",
+        "email": "Email cím",
+        "service": "Érdeklődési terület (szolgáltatás típusa)",
+        "message": "Üzenet tartalma"
+      },
+      "purpose": {
+        "title": "3. Az adatkezelés célja",
+        "content": "Az adatgyűjtés kizárólag azzal a céllal történik, hogy kapcsolatba tudjunk lépni az érdeklődőkkel, és válaszolni tudjunk a megkeresésükre. Az adatokat kizárólag ajánlatkészítés és kapcsolattartás céljából használjuk fel."
+      },
+      "legalBasis": {
+        "title": "4. Az adatkezelés jogalapja",
+        "content": "Az adatkezelés jogalapja az érintett hozzájárulása (GDPR 6. cikk (1) bekezdés a) pont), valamint az Adatkezelő jogos érdeke (GDPR 6. cikk (1) bekezdés f) pont) az üzleti kapcsolatok fenntartására és az érdeklődők megkereséseire történő válaszadásra."
+      },
+      "retention": {
+        "title": "5. Az adatok megőrzési ideje",
+        "content": "A kapcsolatfelvételi űrlapon keresztül megadott személyes adatokat a hozzájárulás visszavonásáig, vagy legfeljebb 2 évig tároljuk. Ezt követően az adatokat töröljük, kivéve ha jogszabály másként rendelkezik (pl. számviteli kötelezettségek esetén)."
+      },
+      "thirdParty": {
+        "title": "6. Adatfeldolgozók",
+        "intro": "Az adatok kezelése során az alábbi harmadik fél szolgáltatását vesszük igénybe:",
+        "web3forms": "Email küldési szolgáltatás, amely továbbítja az űrlapon beküldött adatokat az Adatkezelő email címére. Az adatfeldolgozó saját adatvédelmi szabályzata:"
+      },
+      "rights": {
+        "title": "7. Az érintett jogai",
+        "intro": "Az érintett a GDPR szerint az alábbi jogokkal rendelkezik:",
+        "access": "Hozzáférési jog: tájékoztatást kérhet arról, hogy az Adatkezelő milyen személyes adatait kezeli",
+        "rectification": "Helyesbítéshez való jog: kérheti pontatlan adatainak helyesbítését",
+        "erasure": "Törléshez való jog (\"elfeledtetéshez való jog\"): kérheti adatai törlését",
+        "restriction": "Korlátozáshoz való jog: kérheti adatai kezelésének korlátozását",
+        "portability": "Adathordozhatósághoz való jog: kérheti adatai strukturált, géppel olvasható formátumban történő átadását",
+        "objection": "Tiltakozáshoz való jog: tiltakozhat személyes adatai kezelése ellen",
+        "withdraw": "Hozzájárulás visszavonása: bármikor visszavonhatja hozzájárulását az adatkezeléshez"
+      },
+      "security": {
+        "title": "8. Adatbiztonság",
+        "content": "Az Adatkezelő megfelelő technikai és szervezési intézkedéseket alkalmaz a személyes adatok védelme érdekében, beleértve a jogosulatlan hozzáférés, módosítás, nyilvánosságra hozatal vagy megsemmisítés elleni védelmet."
+      },
+      "cookies": {
+        "title": "9. Sütik (Cookies)",
+        "content": "Jelenleg a weboldal nem használ sütiket. Amennyiben a jövőben analitikai eszközöket (pl. Google Analytics) vezetünk be, erről külön tájékoztatást adunk, és lehetőséget biztosítunk a sütik kezelésére."
+      },
+      "changes": {
+        "title": "10. Az adatkezelési tájékoztató módosítása",
+        "content": "Az Adatkezelő fenntartja a jogot, hogy jelen tájékoztatót bármikor módosítsa. A módosításokról a weboldalon keresztül tájékoztatjuk az érintetteket."
+      },
+      "contact": {
+        "title": "11. Kapcsolat adatvédelmi kérdésekben",
+        "content": "Amennyiben kérdése van az adatkezeléssel kapcsolatban, vagy élni szeretne valamelyik jogával, keressen minket az alábbi elérhetőségeken:",
+        "phone": "Telefon"
+      }
+    }
   },
   "footer": {
     "description": "Professzionális weboldalak kisvállalkozásoknak – érthető árakkal, gyors határidővel.",
     "rights": "Minden jog fenntartva.",
-    "quickLinks": "Gyors linkek"
+    "quickLinks": "Gyors linkek",
+    "legalInfo": "Jogi információk",
+    "businessName": "Dobos Dominik Egyéni Vállalkozó"
   }
 }
-
