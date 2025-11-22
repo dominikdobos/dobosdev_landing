@@ -208,7 +208,7 @@
       },
       {
         "question": "Tudom majd később szerkeszteni az oldalt?",
-        "answer": "Igen! Átadáskor rövid betanítást tartok, hogy a későbbi kisebb módosításokat (szöveg, kép csere) te is meg tudd csinálni. Nagyobb változtatásokhoz pedig elérhető vagyok."
+        "answer": "A weboldal modern technológiával készül (React), amihez fejlesztői ismeretek szükségesek. Minden projekt tartalmaz részletes fejlesztői dokumentációt, így bármikor bevonhatsz egy másik fejlesztőt. Természetesen én is elérhető vagyok minden módosításhoz, akár kisebb szövegcserékhez is."
       },
       {
         "question": "Mit tartalmaz az alap SEO?",
@@ -269,7 +269,7 @@
       "privacyConsent": "Elfogadom az Adatkezelési Tájékoztató szerinti adatkezelést *",
       "privacyConsentError": "Az adatkezelési tájékoztató elfogadása kötelező."
     },
-    "note": "Megjegyzés: A kapcsolatfelvételi űrlap még fejlesztés alatt áll. Jelenleg csak helyőrző funkció."
+    "responseNote": "Minden megkeresésre 1 munkanapon belül válaszolok. Ha sürgős lenne, hívj nyugodtan telefonon!"
   },
   "legal": {
     "impresszum": {

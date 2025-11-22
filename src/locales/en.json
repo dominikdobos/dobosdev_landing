@@ -208,7 +208,7 @@
       },
       {
         "question": "Can I edit the site later?",
-        "answer": "Yes! Upon delivery, I provide brief training so you can make minor modifications (text, image changes) yourself. For larger changes, I'm always available."
+        "answer": "The website is built with modern technology (React), which requires developer knowledge. Every project includes detailed developer documentation, so you can involve another developer at any time. Of course, I'm always available for any modifications, even small text changes."
       },
       {
         "question": "What does basic SEO include?",
@@ -269,7 +269,7 @@
       "privacyConsent": "I accept the data processing according to the Privacy Policy *",
       "privacyConsentError": "You must accept the privacy policy to continue."
     },
-    "note": "Note: The contact form is still under development. Currently just a placeholder function."
+    "responseNote": "I respond to all inquiries within 1 business day. If it's urgent, feel free to call me directly!"
   },
   "legal": {
     "impresszum": {
