@@ -17,7 +17,6 @@ import {
   Search,
   Sparkles,
   Clock,
-  DollarSign,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
