@@ -7,9 +7,12 @@ import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { Mail, Phone, MapPin, AlertCircle, CheckCircle2 } from "lucide-react";
 import { PrivacyPolicyModal } from "@/components/modals/PrivacyPolicyModal";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
+import { useTheme } from "@/contexts/ThemeContext";
 
 export function ContactSection() {
   const { t } = useTranslation();
+  const { theme } = useTheme();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -17,17 +20,28 @@ export function ContactSection() {
     message: "",
   });
   const [privacyConsent, setPrivacyConsent] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<
     "idle" | "success" | "error"
   >("idle");
   const [privacyModalOpen, setPrivacyModalOpen] = useState(false);
 
+  const onHCaptchaChange = (token: string) => {
+    setCaptchaToken(token);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!privacyConsent) {
       alert(t("contact.form.privacyConsentError"));
+      return;
+    }
+
+    if (!captchaToken) {
+      setSubmitStatus("error");
+      alert(t("contact.form.captchaError"));
       return;
     }
 
@@ -47,6 +61,7 @@ export function ContactSection() {
           service: formData.service,
           message: formData.message,
           subject: `Új ajánlatkérés: ${formData.service}`,
+          "h-captcha-response": captchaToken,
         }),
       });
 
@@ -61,6 +76,7 @@ export function ContactSection() {
           message: "",
         });
         setPrivacyConsent(false);
+        setCaptchaToken(null);
       } else {
         setSubmitStatus("error");
       }
@@ -276,6 +292,16 @@ export function ContactSection() {
                       </button>
                       {t("contact.form.privacyConsent").split("]")[1]}
                     </label>
+                  </div>
+
+                  {/* hCaptcha */}
+                  <div className="flex justify-center">
+                    <HCaptcha
+                      sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
+                      onVerify={onHCaptchaChange}
+                      reCaptchaCompat={false}
+                      theme={theme === "dark" ? "dark" : "light"}
+                    />
                   </div>
 
                   {/* Success Message */}
