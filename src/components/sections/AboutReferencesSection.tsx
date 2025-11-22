@@ -62,16 +62,16 @@ export function AboutReferencesSection() {
                   <motion.div
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.2 }}
-                    className="pointer-events-auto"
+                    className="pointer-events-auto h-full"
                   >
-                    <Card className="h-full hover:shadow-lg transition-shadow">
+                    <Card className="h-full hover:shadow-lg transition-shadow flex flex-col">
                       <div className="aspect-video bg-gradient-to-br from-primary/20 to-secondary/20 rounded-t-lg" />
-                      <CardHeader>
+                      <CardHeader className="flex-grow">
                         <div className="flex items-center justify-between mb-2">
                           <Badge variant="secondary">{reference.category}</Badge>
                         </div>
                         <CardTitle>{reference.title}</CardTitle>
-                        <CardDescription>{reference.description}</CardDescription>
+                        <CardDescription className="line-clamp-3">{reference.description}</CardDescription>
                       </CardHeader>
                     </Card>
                   </motion.div>
