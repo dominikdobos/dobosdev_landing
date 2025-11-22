@@ -1,0 +1,274 @@
+{
+  "brand": {
+    "wordplayTitle": "Origin of the name:"
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "process": "Process",
+    "pricing": "Pricing",
+    "faq": "FAQ",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Professional, mobile-friendly websites for small businesses",
+    "subtitle": "In plain language, with no hidden costs. I help your website actually bring in customers – not just look pretty.",
+    "forWho": "For small businesses and local service providers",
+    "whatYouGet": "More inquiries, trust, professional online presence",
+    "whatsDifferent": "Personal attention, transparent pricing, quick turnaround",
+    "cta": "Request a Quote Now"
+  },
+  "services": {
+    "title": "Services",
+    "subtitle": "Everything you need for a successful online presence",
+    "items": {
+      "website": {
+        "title": "Complete Website Creation",
+        "description": "Modern, fast, mobile-friendly website that showcases your business and makes it easy to get in touch.",
+        "features": [
+          "3-5 pages with custom design",
+          "Mobile-optimized display",
+          "Contact form",
+          "Basic SEO",
+          "Google Analytics setup",
+          "2 rounds of revisions"
+        ],
+        "timeframe": "2-3 weeks",
+        "price": "From 180,000 HUF"
+      },
+      "redesign": {
+        "title": "Website Redesign",
+        "description": "Transform your old, outdated website into a fast, modern, mobile-friendly site.",
+        "features": [
+          "Complete visual refresh",
+          "Speed optimization",
+          "Mobile-friendly design",
+          "Content reorganization",
+          "Technical cleanup"
+        ],
+        "timeframe": "1-2 weeks",
+        "price": "From 150,000 HUF"
+      },
+      "maintenance": {
+        "title": "Website Maintenance",
+        "description": "Regular updates, backups, and minor modifications with a monthly subscription.",
+        "features": [
+          "2-3 hours of monthly work",
+          "Regular backups",
+          "Software updates",
+          "Uptime monitoring",
+          "Priority support"
+        ],
+        "timeframe": "Ongoing",
+        "price": "From 10,000 HUF/month"
+      },
+      "landing": {
+        "title": "Campaign Landing Page",
+        "description": "A single long page for a product, service, or promotion. Optimized for conversions.",
+        "features": [
+          "Conversion-optimized design",
+          "Fast loading time",
+          "Contact form",
+          "Basic SEO settings",
+          "1-2 rounds of revisions"
+        ],
+        "timeframe": "1 week",
+        "price": "From 110,000 HUF"
+      },
+      "seo": {
+        "title": "Basic SEO Setup",
+        "description": "Setting up search engine optimization basics so your site can be found.",
+        "features": [
+          "Keyword research",
+          "Meta titles and descriptions",
+          "Heading structure optimization",
+          "Google Search Console setup",
+          "Speed optimization"
+        ],
+        "timeframe": "3-5 days",
+        "price": "From 50,000 HUF"
+      },
+      "extras": {
+        "title": "Extra Services",
+        "description": "Additional help with your online presence.",
+        "features": [
+          "Copywriting / content editing",
+          "Google Business profile setup",
+          "Custom development",
+          "Hourly work"
+        ],
+        "timeframe": "Variable",
+        "price": "From 8,000 HUF/hour"
+      }
+    }
+  },
+  "process": {
+    "title": "How I Work With You",
+    "subtitle": "Simple, transparent process from idea to live website",
+    "steps": {
+      "consultation": {
+        "title": "Free Consultation",
+        "description": "I understand your business and your goals. We discuss what you need together."
+      },
+      "proposal": {
+        "title": "Proposal & Structure",
+        "description": "We design the site structure with estimated timeline and pricing."
+      },
+      "development": {
+        "title": "Development & Feedback",
+        "description": "Design and development with 1-2 rounds of revisions according to your needs."
+      },
+      "delivery": {
+        "title": "Delivery & Training",
+        "description": "Launch, basic SEO setup, short guide so you can use it later."
+      }
+    }
+  },
+  "pricing": {
+    "title": "Pricing",
+    "subtitle": "Transparent, competitive pricing for small businesses",
+    "disclaimer": "Prices are indicative, I provide a personalized quote before each project.",
+    "paymentTerms": "Payment terms: 50% deposit on contract, 50% on delivery.",
+    "packages": {
+      "landing": {
+        "name": "Start Landing",
+        "description": "Custom, mobile-friendly landing page for inquiries or campaigns.",
+        "price": "From 110,000 HUF",
+        "features": [
+          "1-page landing page",
+          "Mobile-friendly design",
+          "Contact form",
+          "Basic SEO",
+          "1-2 rounds of revisions"
+        ]
+      },
+      "business": {
+        "name": "Business Website",
+        "description": "Home, services, about, references, contact – everything you need.",
+        "price": "From 180,000 - 220,000 HUF",
+        "features": [
+          "3-5 pages with custom design",
+          "Full mobile optimization",
+          "Contact form",
+          "Google Analytics setup",
+          "Basic SEO",
+          "2 rounds of revisions"
+        ],
+        "popular": true
+      },
+      "redesign": {
+        "name": "Redesign",
+        "description": "Transform your old, outdated website into a modern, fast site.",
+        "price": "From 150,000 HUF",
+        "features": [
+          "Complete design refresh",
+          "Speed optimization",
+          "Mobile-friendly conversion",
+          "Content organization",
+          "Basic SEO"
+        ]
+      },
+      "maintenance": {
+        "name": "Monthly Maintenance",
+        "description": "Updates, backups, minor modifications monthly.",
+        "price": "From 10,000 HUF/month",
+        "features": [
+          "2-3 hours of monthly work",
+          "Regular backups",
+          "Software updates",
+          "Technical support",
+          "Uptime monitoring"
+        ]
+      }
+    },
+    "hourlyRate": {
+      "title": "Additional Modifications",
+      "description": "Further modifications, custom development",
+      "price": "From 8,000 HUF/hour"
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Answers to the most common questions",
+    "items": [
+      {
+        "question": "How long does it take to complete my website?",
+        "answer": "A landing page takes about 1 week, a 3-5 page business website takes 2-3 weeks. This depends on the project's complexity and how quickly we can align on the details."
+      },
+      {
+        "question": "How does payment work?",
+        "answer": "I start work with a 50% deposit, which must be paid when ordering. The remaining 50% is due upon delivery, before going live. All prices include 2 rounds of revisions; additional requests are billed hourly."
+      },
+      {
+        "question": "What do I need to provide for the website?",
+        "answer": "I'll need text content (or I can help write/edit it), a logo, and images/photos of your business. If you don't have everything, I can help gather it or suggest alternatives (e.g., stock photos)."
+      },
+      {
+        "question": "Will I have my own domain and email address?",
+        "answer": "Yes! I help with domain (web address) registration and setup, as well as creating email addresses (e.g., info@yourcompany.com). These costs are separate but I handle everything for you."
+      },
+      {
+        "question": "Can I edit the site later?",
+        "answer": "Yes! Upon delivery, I provide brief training so you can make minor modifications (text, image changes) yourself. For larger changes, I'm always available."
+      },
+      {
+        "question": "What does basic SEO include?",
+        "answer": "Basic SEO includes setting up meta titles and descriptions, heading structure optimization, Google Analytics and Search Console basic configuration, and website speed optimization. This is the first step to getting your site to appear in search engines."
+      }
+    ]
+  },
+  "about": {
+    "title": "About Me",
+    "description": "I create websites for small businesses who want a professional online presence without waiting weeks or dealing with unclear pricing. I believe every business deserves a fast, beautiful, and functional website – clearly, simply, with no hidden costs."
+  },
+  "references": {
+    "title": "References",
+    "subtitle": "Some projects I've worked on",
+    "items": [
+      {
+        "title": "Local Hair Salon",
+        "description": "Modern showcase website with booking functionality and gallery section. Mobile-optimized with fast loading times.",
+        "category": "Service"
+      },
+      {
+        "title": "Fitness Coach",
+        "description": "Single-page landing page for online training program, with conversion-optimized contact form and video embed.",
+        "category": "Landing Page"
+      },
+      {
+        "title": "Craft Workshop",
+        "description": "Showcase site enhanced with e-commerce features, product gallery, and basic SEO setup.",
+        "category": "E-commerce"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Request a Quote",
+    "subtitle": "Tell me what you need, and I'll respond within 1 business day!",
+    "form": {
+      "name": "Your Name",
+      "email": "Your Email",
+      "service": "Which service are you interested in?",
+      "serviceOptions": {
+        "website": "Complete Website Creation",
+        "redesign": "Website Redesign",
+        "landing": "Landing Page",
+        "maintenance": "Maintenance",
+        "seo": "SEO",
+        "other": "Other / Not sure yet"
+      },
+      "message": "Message / Project Details",
+      "submit": "Request Quote",
+      "sending": "Sending...",
+      "success": "Thank you for your message! I'll be in touch soon.",
+      "error": "An error occurred. Please email me directly."
+    },
+    "note": "Note: The contact form is still under development. Currently just a placeholder function."
+  },
+  "footer": {
+    "description": "Professional websites for small businesses – with clear pricing and quick turnaround.",
+    "rights": "All rights reserved.",
+    "quickLinks": "Quick Links"
+  }
+}
+

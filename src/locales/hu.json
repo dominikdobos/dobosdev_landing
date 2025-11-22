@@ -1,0 +1,274 @@
+{
+  "brand": {
+    "wordplayTitle": "A név eredete:"
+  },
+  "nav": {
+    "home": "Főoldal",
+    "services": "Szolgáltatások",
+    "process": "Folyamat",
+    "pricing": "Árak",
+    "faq": "GYIK",
+    "contact": "Kapcsolat"
+  },
+  "hero": {
+    "title": "Profi, mobilbarát weboldalak kisvállalkozásoknak",
+    "subtitle": "Érthető nyelven, rejtett költségek nélkül. Segítek, hogy a weboldalad tényleg ügyfeleket hozzon – nem csak \"szép\" legyen.",
+    "forWho": "Kisvállalkozásoknak és helyi szolgáltatóknak",
+    "whatYouGet": "Több megkeresés, bizalom, professzionális online jelenlét",
+    "whatsDifferent": "Egyéni odafigyelés, átlátható árak, gyors határidő",
+    "cta": "Kérj ajánlatot most"
+  },
+  "services": {
+    "title": "Szolgáltatások",
+    "subtitle": "Minden, amire szükséged van a sikeres online jelenléthez",
+    "items": {
+      "website": {
+        "title": "Teljes weboldal készítés",
+        "description": "Modern, gyors, mobilbarát weboldal, ami bemutatja a vállalkozásod és megkönnyíti a kapcsolatfelvételt.",
+        "features": [
+          "3-5 oldal egyedi tervezéssel",
+          "Mobilra optimalizált megjelenés",
+          "Kapcsolatfelvételi űrlap",
+          "Alap keresőoptimalizálás (SEO)",
+          "Google Analytics beállítás",
+          "2 kör módosítás"
+        ],
+        "timeframe": "2-3 hét",
+        "price": "180 000 Ft-tól"
+      },
+      "redesign": {
+        "title": "Weboldal újratervezés",
+        "description": "Régi, elavult honlapodból gyors, modern és mobilbarát weboldalt készítek.",
+        "features": [
+          "Teljes vizuális megújítás",
+          "Sebesség optimalizálás",
+          "Mobilbarát kialakítás",
+          "Tartalom átszerkesztése",
+          "Technikai rendberakás"
+        ],
+        "timeframe": "1-2 hét",
+        "price": "150 000 Ft-tól"
+      },
+      "maintenance": {
+        "title": "Weboldal karbantartás",
+        "description": "Rendszeres frissítések, biztonsági mentés, kisebb módosítások havidíjért.",
+        "features": [
+          "Havi 2-3 óra módosítás",
+          "Rendszeres biztonsági mentés",
+          "Szoftver frissítések",
+          "Uptime figyelés",
+          "Prioritás támogatás"
+        ],
+        "timeframe": "Folyamatos",
+        "price": "10 000 Ft/hó-tól"
+      },
+      "landing": {
+        "title": "Landing oldal kampányhoz",
+        "description": "Egy hosszú oldal egy terméknek, szolgáltatásnak vagy akciónak. Konverzióra optimalizálva.",
+        "features": [
+          "Konverzióra optimalizált design",
+          "Gyors betöltési idő",
+          "Kapcsolatfelvételi űrlap",
+          "Alap SEO beállítások",
+          "1-2 kör módosítás"
+        ],
+        "timeframe": "1 hét",
+        "price": "110 000 Ft-tól"
+      },
+      "seo": {
+        "title": "Alap SEO beállítások",
+        "description": "Keresőoptimalizálási alapok beállítása, hogy az oldaladat megtalálják.",
+        "features": [
+          "Kulcsszó kutatás",
+          "Meta címek és leírások",
+          "Heading struktúra optimalizálás",
+          "Google Search Console beállítás",
+          "Sebesség optimalizálás"
+        ],
+        "timeframe": "3-5 nap",
+        "price": "50 000 Ft-tól"
+      },
+      "extras": {
+        "title": "Extra szolgáltatások",
+        "description": "További segítség az online jelenlétedhez.",
+        "features": [
+          "Szövegírás / szöveg átfésülés",
+          "Google Cégem profil beállítása",
+          "Egyedi fejlesztések",
+          "Óradíjas munka"
+        ],
+        "timeframe": "Változó",
+        "price": "8 000 Ft/óra-tól"
+      }
+    }
+  },
+  "process": {
+    "title": "Így dolgozom veled",
+    "subtitle": "Egyszerű, átlátható folyamat az ötlettől az éles weboldalig",
+    "steps": {
+      "consultation": {
+        "title": "Ingyenes konzultáció",
+        "description": "Megértem a vállalkozásod és a céljaid. Közösen átbeszéljük, mire van szükséged."
+      },
+      "proposal": {
+        "title": "Ajánlat és struktúra",
+        "description": "Megtervezzük az oldal felépítését, becsült határidővel és árazással."
+      },
+      "development": {
+        "title": "Készítés és egyeztetés",
+        "description": "Design, fejlesztés, közben 1-2 kör módosítási lehetőség az igényeid szerint."
+      },
+      "delivery": {
+        "title": "Átadás és betanítás",
+        "description": "Élesítés, alap SEO beállítások, rövid útmutató, hogy később is tudd használni."
+      }
+    }
+  },
+  "pricing": {
+    "title": "Árak",
+    "subtitle": "Átlátható, versenykép es árazás kisvállalkozásoknak",
+    "disclaimer": "Az árak tájékoztató jellegűek, minden projekt előtt személyre szabott ajánlatot adok.",
+    "paymentTerms": "Fizetési feltételek: 50% előleg szerződéskor, 50% átadáskor.",
+    "packages": {
+      "landing": {
+        "name": "Start Landing",
+        "description": "Egyedi, mobilbarát landing oldal ajánlatkéréshez vagy kampányhoz.",
+        "price": "110 000 Ft-tól",
+        "features": [
+          "1 oldalas landing page",
+          "Mobilbarát kialakítás",
+          "Kapcsolatfelvételi űrlap",
+          "Alap SEO",
+          "1-2 kör módosítás"
+        ]
+      },
+      "business": {
+        "name": "Business Weboldal",
+        "description": "Főoldal, szolgáltatások, rólam, referenciák, kapcsolat – minden, ami kell.",
+        "price": "180 000 - 220 000 Ft-tól",
+        "features": [
+          "3-5 oldal egyedi design",
+          "Teljes mobiloptimalizálás",
+          "Kapcsolatfelvételi űrlap",
+          "Google Analytics beállítás",
+          "Alap SEO",
+          "2 kör módosítás"
+        ],
+        "popular": true
+      },
+      "redesign": {
+        "name": "Redesign",
+        "description": "Régi, elavult honlapodból modern, gyors weboldalt készítek.",
+        "price": "150 000 Ft-tól",
+        "features": [
+          "Teljes design megújítás",
+          "Sebesség optimalizálás",
+          "Mobilbarát átalakítás",
+          "Tartalom rendezés",
+          "Alap SEO"
+        ]
+      },
+      "maintenance": {
+        "name": "Havi karbantartás",
+        "description": "Frissítések, biztonsági mentés, kisebb módosítások havonta.",
+        "price": "10 000 Ft/hó-tól",
+        "features": [
+          "Havi 2-3 óra munkaidő",
+          "Rendszeres backup",
+          "Szoftver frissítések",
+          "Technikai támogatás",
+          "Uptime monitoring"
+        ]
+      }
+    },
+    "hourlyRate": {
+      "title": "További módosítások",
+      "description": "További módosítások, egyedi fejlesztés",
+      "price": "8 000 Ft/óra-tól"
+    }
+  },
+  "faq": {
+    "title": "Gyakori kérdések",
+    "subtitle": "Válaszok a leggyakoribb kérdésekre",
+    "items": [
+      {
+        "question": "Mennyi idő alatt készül el a weboldalam?",
+        "answer": "Egy landing oldal kb. 1 hét, egy 3-5 oldalas céges weboldal 2-3 hét alatt elkészül. Ez függ a projekt összetettségétől és attól, mennyire gyorsan tudjuk egyeztetni a részleteket."
+      },
+      {
+        "question": "Hogyan történik a fizetés?",
+        "answer": "A munkát 50% előleg mellett kezdem el, amit a megrendeléskor kell kifizetni. A fennmaradó 50%-ot az átadáskor, az élesítés előtt kell rendezni. Minden ár tartalmaz 2 módosítási kört, ezen felüli igények óradíj alapján kerülnek elszámolásra."
+      },
+      {
+        "question": "Mi kell tőlem a weboldal elkészítéséhez?",
+        "answer": "Szükségem lesz szövegekre (vagy segíthetek megírni/átfésülni), logóra, képekre/fotókra a vállalkozásról. Ha nincs meg minden, segítek összeszedni vagy ajánlok alternatívákat (pl. stock fotók)."
+      },
+      {
+        "question": "Lesz-e saját domainem és e-mail címem?",
+        "answer": "Igen! Segítek a domain (webcím) regisztrációjában és beállításában, illetve e-mail cím létrehozásában is (pl. info@cegnev.hu). Ezek költsége külön fizetendő, de mindent intézek helyetted."
+      },
+      {
+        "question": "Tudom majd később szerkeszteni az oldalt?",
+        "answer": "Igen! Átadáskor rövid betanítást tartok, hogy a későbbi kisebb módosításokat (szöveg, kép csere) te is meg tudd csinálni. Nagyobb változtatásokhoz pedig elérhető vagyok."
+      },
+      {
+        "question": "Mit tartalmaz az alap SEO?",
+        "answer": "Az alap SEO magában foglalja a meta címek és leírások beállítását, heading struktúra optimalizálást, Google Analytics és Search Console alapbeállítását, valamint a weboldal sebesség optimalizálását. Ez az első lépés ahhoz, hogy az oldalad megjelenjen a keresőkben."
+      }
+    ]
+  },
+  "about": {
+    "title": "Rólam",
+    "description": "Weboldalakat készítek kisvállalkozásoknak, akik szeretnének professzionális online jelenlétet, de nem akarnak heteket várni vagy átláthatatlan árakkal találkozni. Hiszem, hogy minden vállalkozás megérdemel egy gyors, szép és működő weboldalt – érthetően, egyszerűen, rejtett költségek nélkül."
+  },
+  "references": {
+    "title": "Referenciák",
+    "subtitle": "Néhány projekt, amin dolgoztam",
+    "items": [
+      {
+        "title": "Helyi Fodrászat",
+        "description": "Modern bemutatkozó weboldal időpontfoglaló funkcióval és galéria szekcióval. Mobilra optimalizált, gyors betöltési idővel.",
+        "category": "Szolgáltatás"
+      },
+      {
+        "title": "Fitness Coach",
+        "description": "Egyoldalas landing page online edzésprogramhoz, konverzióra optimalizált kapcsolatfelvételi űrlappal és videó beágyazással.",
+        "category": "Landing oldal"
+      },
+      {
+        "title": "Kézműves Műhely",
+        "description": "E-commerce funkciókkal bővített bemutatkozó oldal, termékgalériával és alap SEO beállításokkal.",
+        "category": "Webáruház"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Kérj ajánlatot",
+    "subtitle": "Írd meg, mire van szükséged, és 1 munkanapon belül válaszolok!",
+    "form": {
+      "name": "Neved",
+      "email": "Email címed",
+      "service": "Milyen szolgáltatás érdekel?",
+      "serviceOptions": {
+        "website": "Teljes weboldal készítés",
+        "redesign": "Weboldal újratervezés",
+        "landing": "Landing oldal",
+        "maintenance": "Karbantartás",
+        "seo": "SEO",
+        "other": "Egyéb / nem tudom még"
+      },
+      "message": "Üzenet / projekt részletei",
+      "submit": "Ajánlat kérése",
+      "sending": "Küldés...",
+      "success": "Köszönöm az üzeneted! Hamarosan jelentkezem.",
+      "error": "Hiba történt. Kérlek, írj közvetlenül az email címemre."
+    },
+    "note": "Megjegyzés: A kapcsolatfelvételi űrlap még fejlesztés alatt áll. Jelenleg csak helyőrző funkció."
+  },
+  "footer": {
+    "description": "Professzionális weboldalak kisvállalkozásoknak – érthető árakkal, gyors határidővel.",
+    "rights": "Minden jog fenntartva.",
+    "quickLinks": "Gyors linkek"
+  }
+}
+
