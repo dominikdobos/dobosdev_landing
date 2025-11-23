@@ -1,9 +1,11 @@
 {
   "nav": {
     "home": "Home",
+    "back": "Back",
     "services": "Services",
     "process": "Process",
     "pricing": "Pricing",
+    "references": "References",
     "faq": "FAQ",
     "contact": "Contact"
   },
@@ -223,21 +225,49 @@
   "references": {
     "title": "References",
     "subtitle": "Some projects I've worked on",
+    "nextReference": {
+      "title": "You Could Be Next!",
+      "description": "Let's work together on your project. Contact me with your idea, and let's make it happen!",
+      "category": "New Project"
+    },
     "items": [
       {
-        "title": "Local Hair Salon",
-        "description": "Modern showcase website with booking functionality and gallery section. Mobile-optimized with fast loading times.",
-        "category": "Service"
+        "id": "billify",
+        "title": "Billify",
+        "description": "Built the MVP of a modern invoicing and financial forecasting web app for a Belgian startup, including the landing page and a complex web application with multiple third-party integrations (accounting systems, Stripe, Ponto).",
+        "category": "SaaS Web Application",
+        "scrollAnimationUrl": "/assets/references/billify/scroll.webm",
+        "galleryImages": [
+          "/assets/references/billify/billify1.jpg",
+          "/assets/references/billify/billify2.jpg",
+          "/assets/references/billify/billify3.jpg",
+          "/assets/references/billify/billify4.jpg",
+          "/assets/references/billify/billify5.jpg",
+          "/assets/references/billify/billify6.jpg",
+          "/assets/references/billify/billify7.jpg",
+          "/assets/references/billify/billify8.jpg",
+          "/assets/references/billify/billify10.jpg",
+          "/assets/references/billify/billify11.jpg",
+          "/assets/references/billify/billify12.jpg",
+          "/assets/references/billify/billify13.jpg"
+        ]
       },
       {
-        "title": "Fitness Coach",
-        "description": "Single-page landing page for online training program, with conversion-optimized contact form and video embed.",
-        "category": "Landing Page"
-      },
-      {
-        "title": "Craft Workshop",
-        "description": "Showcase site enhanced with e-commerce features, product gallery, and basic SEO setup.",
-        "category": "E-commerce"
+        "id": "omtkft",
+        "title": "OMT Kft.",
+        "description": "Corporate website and company management web application for an industrial maintenance company. Employee and customer management, work order creation and tracking, quote generation, invoice tracking, and reporting.",
+        "category": "Landing & Back-office app",
+        "scrollAnimationUrl": "/assets/references/omtkft/scroll.webm",
+        "galleryImages": [
+          "/assets/references/omtkft/omtkft1.jpg",
+          "/assets/references/omtkft/omtkft2.jpg",
+          "/assets/references/omtkft/omtkft3.jpg",
+          "/assets/references/omtkft/omtkft4.jpg",
+          "/assets/references/omtkft/omtkft5.jpg",
+          "/assets/references/omtkft/omktft6.jpg",
+          "/assets/references/omtkft/omtkft7.jpg",
+          "/assets/references/omtkft/omtkft8.jpg"
+        ]
       }
     ]
   },
@@ -277,7 +307,7 @@
       "title": "Imprint",
       "subtitle": "Legal information about the business",
       "businessName": "Business Name",
-      "businessNameValue": "Dobos Dominik Sole Proprietor",
+      "businessNameValue": "Dobos Dominik E.V.",
       "ownerName": "Owner Name",
       "ownerNameValue": "Dobos Dominik",
       "registrationNumber": "Business Registration Number",

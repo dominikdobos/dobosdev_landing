@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/common/ThemeToggle";
 import { LanguageToggle } from "@/components/common/LanguageToggle";
 
-const navItems = ["home", "services", "process", "pricing", "faq", "contact"];
+const navItems = ["home", "services", "process", "pricing", "references", "faq", "contact"];
 
 export function Header() {
   const { t } = useTranslation();

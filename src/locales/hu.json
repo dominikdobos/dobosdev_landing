@@ -1,9 +1,11 @@
 {
   "nav": {
     "home": "Főoldal",
+    "back": "Vissza",
     "services": "Szolgáltatások",
     "process": "Folyamat",
     "pricing": "Árak",
+    "references": "Referenciák",
     "faq": "GYIK",
     "contact": "Kapcsolat"
   },
@@ -223,21 +225,49 @@
   "references": {
     "title": "Referenciák",
     "subtitle": "Néhány projekt, amin dolgoztam",
+    "nextReference": {
+      "title": "Te lehetsz a következő!",
+      "description": "Dolgozzunk együtt a te projekteden. Keress meg az ötleteddel, és valósítsuk meg együtt!",
+      "category": "Új Projekt"
+    },
     "items": [
       {
-        "title": "Helyi Fodrászat",
-        "description": "Modern bemutatkozó weboldal időpontfoglaló funkcióval és galéria szekcióval. Mobilra optimalizált, gyors betöltési idővel.",
-        "category": "Szolgáltatás"
+        "id": "billify",
+        "title": "Billify",
+        "description": "Modern számlázó- és pénzügyi előrejelző webalkalmazás MVP-jének kivitelezése egy belga startup-ügyfél számára. Landing page és komplex webapplikáció fejlesztése több külső szolgáltatással (könyvelőprogramok, Stripe, Ponto) történő integrációval.",
+        "category": "SaaS Webalkalmazás",
+        "scrollAnimationUrl": "/assets/references/billify/scroll.webm",
+        "galleryImages": [
+          "/assets/references/billify/billify1.jpg",
+          "/assets/references/billify/billify2.jpg",
+          "/assets/references/billify/billify3.jpg",
+          "/assets/references/billify/billify4.jpg",
+          "/assets/references/billify/billify5.jpg",
+          "/assets/references/billify/billify6.jpg",
+          "/assets/references/billify/billify7.jpg",
+          "/assets/references/billify/billify8.jpg",
+          "/assets/references/billify/billify10.jpg",
+          "/assets/references/billify/billify11.jpg",
+          "/assets/references/billify/billify12.jpg",
+          "/assets/references/billify/billify13.jpg"
+        ]
       },
       {
-        "title": "Fitness Coach",
-        "description": "Egyoldalas landing page online edzésprogramhoz, konverzióra optimalizált kapcsolatfelvételi űrlappal és videó beágyazással.",
-        "category": "Landing oldal"
-      },
-      {
-        "title": "Kézműves Műhely",
-        "description": "E-commerce funkciókkal bővített bemutatkozó oldal, termékgalériával és alap SEO beállításokkal.",
-        "category": "Webáruház"
+        "id": "omtkft",
+        "title": "OMT Kft.",
+        "description": "Ipari karbantartással foglalkozó cég vállalati weboldala és cégmenedzsment webalkalmazása. Dolgozók és ügyfelek kezelése, munkalapok generálása és kezelése, ajánlatok készítése, számlakövetés és kimutatások generálása.",
+        "category": "Landing & Cégmenedzsment webapplikáció",
+        "scrollAnimationUrl": "/assets/references/omtkft/scroll.webm",
+        "galleryImages": [
+          "/assets/references/omtkft/omtkft1.jpg",
+          "/assets/references/omtkft/omtkft2.jpg",
+          "/assets/references/omtkft/omtkft3.jpg",
+          "/assets/references/omtkft/omtkft4.jpg",
+          "/assets/references/omtkft/omtkft5.jpg",
+          "/assets/references/omtkft/omktft6.jpg",
+          "/assets/references/omtkft/omtkft7.jpg",
+          "/assets/references/omtkft/omtkft8.jpg"
+        ]
       }
     ]
   },
@@ -277,7 +307,7 @@
       "title": "Impresszum",
       "subtitle": "Jogi információk a vállalkozásról",
       "businessName": "Cégnév",
-      "businessNameValue": "Dobos Dominik Egyéni Vállalkozó",
+      "businessNameValue": "Dobos Dominik E.V.",
       "ownerName": "Tulajdonos neve",
       "ownerNameValue": "Dobos Dominik",
       "registrationNumber": "Vállalkozói nyilvántartási szám",

@@ -10,13 +10,29 @@ import { FAQSection } from "@/components/sections/FAQSection";
 import { AboutReferencesSection } from "@/components/sections/AboutReferencesSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { InteractiveGridPattern } from "@/components/common/InteractiveGridPattern";
+import { ReferencePage } from "@/pages/ReferencePage";
 import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import "@/lib/i18n";
 
-function App() {
+function MainPage() {
   // Responsive grid square counts based on viewport width
   const [gridSquares, setGridSquares] = useState<[number, number]>([16, 16]);
+  const location = useLocation();
+
+  // Handle hash scrolling
+  useEffect(() => {
+    if (location.hash) {
+      const sectionId = location.hash.replace("#", "");
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100); // Small delay to ensure rendering
+    }
+  }, [location]);
 
   useEffect(() => {
     const updateGridSquares = () => {
@@ -39,44 +55,57 @@ function App() {
   }, []);
 
   return (
+    <>
+      <Header />
+      <main className="relative">
+        {/* Hero section with interactive grid only */}
+        <div className="relative min-h-screen">
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="w-full h-full">
+              <InteractiveGridPattern
+                width={40}
+                height={40}
+                squares={gridSquares}
+                className={cn(
+                  "[mask-image:radial-gradient(500px_circle_at_center,white,transparent)]",
+                  "md:[mask-image:radial-gradient(600px_circle_at_center,white,transparent)]",
+                  "skew-y-12"
+                )}
+              />
+            </div>
+          </div>
+          <div className="relative z-10 pointer-events-none">
+            <HeroSection />
+          </div>
+        </div>
+
+        {/* Other sections */}
+        <div className="relative z-10">
+          <ServicesSection />
+          <ProcessSection />
+          <PricingSection />
+          <AboutReferencesSection />
+          <FAQSection />
+          <ContactSection />
+        </div>
+      </main>
+      <Footer />
+    </>
+  );
+}
+
+function App() {
+  return (
     <ThemeProvider>
       <LanguageProvider>
-        <div className="min-h-screen bg-background text-foreground">
-          <Header />
-          <main className="relative">
-            {/* Hero section with interactive grid only */}
-            <div className="relative min-h-screen">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-full h-full">
-                  <InteractiveGridPattern
-                    width={40}
-                    height={40}
-                    squares={gridSquares}
-                    className={cn(
-                      "[mask-image:radial-gradient(500px_circle_at_center,white,transparent)]",
-                      "md:[mask-image:radial-gradient(600px_circle_at_center,white,transparent)]",
-                      "skew-y-12"
-                    )}
-                  />
-                </div>
-              </div>
-              <div className="relative z-10 pointer-events-none">
-                <HeroSection />
-              </div>
-            </div>
-
-            {/* Other sections */}
-            <div className="relative z-10">
-              <ServicesSection />
-              <ProcessSection />
-              <PricingSection />
-              <AboutReferencesSection />
-              <FAQSection />
-              <ContactSection />
-            </div>
-          </main>
-          <Footer />
-        </div>
+        <Router>
+          <div className="min-h-screen bg-background text-foreground">
+            <Routes>
+              <Route path="/" element={<MainPage />} />
+              <Route path="/reference/:id" element={<ReferencePage />} />
+            </Routes>
+          </div>
+        </Router>
       </LanguageProvider>
     </ThemeProvider>
   );
