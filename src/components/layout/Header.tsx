@@ -7,7 +7,7 @@ import { ThemeToggle } from "@/components/common/ThemeToggle";
 import { LanguageToggle } from "@/components/common/LanguageToggle";
 import { useNavigate } from "react-router-dom";
 
-const navItems = ["home", "services", "process", "pricing", "references", "faq", "contact"];
+const navItems = ["services", "process", "pricing", "references", "faq", "contact"];
 
 export function Header() {
   const { t, i18n } = useTranslation();

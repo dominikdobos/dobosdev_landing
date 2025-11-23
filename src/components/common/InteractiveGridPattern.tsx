@@ -62,7 +62,7 @@ export function InteractiveGridPattern({
             strokeWidth="0.6"
             className={cn(
               "stroke-gray-400/30 dark:stroke-gray-500/30",
-              "transition-all duration-1000 ease-in-out hover:duration-100",
+              "transition-colors duration-1000 ease-in-out hover:duration-100",
               "hover:fill-primary/20 hover:stroke-primary",
               squaresClassName
             )}

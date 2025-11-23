@@ -3,18 +3,19 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { HeroSection } from "@/components/sections/HeroSection";
-import { ServicesSection } from "@/components/sections/ServicesSection";
-import { ProcessSection } from "@/components/sections/ProcessSection";
-import { PricingSection } from "@/components/sections/PricingSection";
-import { FAQSection } from "@/components/sections/FAQSection";
-import { AboutReferencesSection } from "@/components/sections/AboutReferencesSection";
-import { ContactSection } from "@/components/sections/ContactSection";
 import { InteractiveGridPattern } from "@/components/common/InteractiveGridPattern";
-import { ReferencePage } from "@/pages/ReferencePage";
 import { cn } from "@/lib/utils";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense, lazy } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import "@/lib/i18n";
+
+const ServicesSection = lazy(() => import("@/components/sections/ServicesSection").then(module => ({ default: module.ServicesSection })));
+const ProcessSection = lazy(() => import("@/components/sections/ProcessSection").then(module => ({ default: module.ProcessSection })));
+const PricingSection = lazy(() => import("@/components/sections/PricingSection").then(module => ({ default: module.PricingSection })));
+const FAQSection = lazy(() => import("@/components/sections/FAQSection").then(module => ({ default: module.FAQSection })));
+const AboutReferencesSection = lazy(() => import("@/components/sections/AboutReferencesSection").then(module => ({ default: module.AboutReferencesSection })));
+const ContactSection = lazy(() => import("@/components/sections/ContactSection").then(module => ({ default: module.ContactSection })));
+const ReferencePage = lazy(() => import("@/pages/ReferencePage").then(module => ({ default: module.ReferencePage })));
 
 function MainPage() {
   // Responsive grid square counts based on viewport width
@@ -106,12 +107,14 @@ function MainPage() {
 
         {/* Other sections */}
         <div className="relative z-10">
-          <ServicesSection />
-          <ProcessSection />
-          <PricingSection />
-          <AboutReferencesSection />
-          <FAQSection />
-          <ContactSection />
+          <Suspense fallback={<div className="py-20" />}>
+            <ServicesSection />
+            <ProcessSection />
+            <PricingSection />
+            <AboutReferencesSection />
+            <FAQSection />
+            <ContactSection />
+          </Suspense>
         </div>
       </main>
       <Footer />
@@ -125,22 +128,24 @@ function App() {
       <LanguageProvider>
         <Router>
           <div className="min-h-screen bg-background text-foreground">
-            <Routes>
-              <Route path="/" element={<MainPage />} />
-              <Route path="/services" element={<MainPage />} />
-              <Route path="/process" element={<MainPage />} />
-              <Route path="/pricing" element={<MainPage />} />
-              <Route path="/faq" element={<MainPage />} />
-              <Route path="/contact" element={<MainPage />} />
-              <Route path="/references" element={<MainPage />} />
-              <Route path="/szolgaltatasok" element={<MainPage />} />
-              <Route path="/folyamat" element={<MainPage />} />
-              <Route path="/arak" element={<MainPage />} />
-              <Route path="/referenciak" element={<MainPage />} />
-              <Route path="/gyik" element={<MainPage />} />
-              <Route path="/kapcsolat" element={<MainPage />} />
-              <Route path="/reference/:id" element={<ReferencePage />} />
-            </Routes>
+            <Suspense fallback={<div className="min-h-screen" />}>
+              <Routes>
+                <Route path="/" element={<MainPage />} />
+                <Route path="/services" element={<MainPage />} />
+                <Route path="/process" element={<MainPage />} />
+                <Route path="/pricing" element={<MainPage />} />
+                <Route path="/faq" element={<MainPage />} />
+                <Route path="/contact" element={<MainPage />} />
+                <Route path="/references" element={<MainPage />} />
+                <Route path="/szolgaltatasok" element={<MainPage />} />
+                <Route path="/folyamat" element={<MainPage />} />
+                <Route path="/arak" element={<MainPage />} />
+                <Route path="/referenciak" element={<MainPage />} />
+                <Route path="/gyik" element={<MainPage />} />
+                <Route path="/kapcsolat" element={<MainPage />} />
+                <Route path="/reference/:id" element={<ReferencePage />} />
+              </Routes>
+            </Suspense>
           </div>
         </Router>
       </LanguageProvider>
