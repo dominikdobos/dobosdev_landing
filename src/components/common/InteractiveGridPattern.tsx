@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { cn } from "@/lib/utils";
 
 /**
@@ -35,7 +35,6 @@ export function InteractiveGridPattern({
   ...props
 }: InteractiveGridPatternProps) {
   const [horizontal, vertical] = squares;
-  const [hoveredSquare, setHoveredSquare] = useState<number | null>(null);
 
   return (
     <svg
@@ -63,12 +62,10 @@ export function InteractiveGridPattern({
             strokeWidth="0.6"
             className={cn(
               "stroke-gray-400/30 dark:stroke-gray-500/30",
-              "transition-all duration-100 ease-in-out [&:not(:hover)]:duration-1000",
-              hoveredSquare === index && "fill-primary/20 stroke-primary",
+              "transition-all duration-1000 ease-in-out hover:duration-100",
+              "hover:fill-primary/20 hover:stroke-primary",
               squaresClassName
             )}
-            onMouseEnter={() => setHoveredSquare(index)}
-            onMouseLeave={() => setHoveredSquare(null)}
           />
         );
       })}
