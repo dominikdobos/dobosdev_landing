@@ -115,9 +115,10 @@ export function ReferencePage() {
           </Button>
           {view === "video" && (
              <Button
-               variant="secondary"
+               variant="outline"
                size="sm"
                onClick={skipVideo}
+               className="bg-secondary text-secondary-foreground hover:bg-secondary/80"
              >
                <SkipForward className="w-4 h-4 mr-2" />
                Skip Animation
