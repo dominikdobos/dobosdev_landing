@@ -111,11 +111,11 @@ export function ContactSection() {
           </p>
         </AnimatedSection>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
           {/* Contact Info */}
-          <AnimatedSection delay={0.2}>
-            <div className="space-y-6">
-              <Card>
+          <AnimatedSection delay={0.2} className="w-full">
+            <div className="space-y-6 w-full">
+              <Card className="w-full">
                 <CardContent className="pt-6">
                   <div className="space-y-4">
                     <div className="flex items-center gap-4">
@@ -175,8 +175,8 @@ export function ContactSection() {
           </AnimatedSection>
 
           {/* Contact Form */}
-          <AnimatedSection delay={0.3}>
-            <Card>
+          <AnimatedSection delay={0.3} className="w-full">
+            <Card className="w-full">
               <CardContent className="pt-6">
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>

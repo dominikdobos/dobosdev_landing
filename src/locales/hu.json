@@ -10,9 +10,9 @@
     "contact": "Kapcsolat"
   },
   "hero": {
-    "title": "Profi, mobilbarát weboldalak kisvállalkozásoknak",
+    "title": "Profi, gyors weboldalak kisvállalkozásoknak",
     "subtitle": "Érthető nyelven, rejtett költségek nélkül. Segítek, hogy a weboldalad tényleg ügyfeleket hozzon, és ne csak \"szép\" legyen.",
-    "forWho": "Kisvállalkozásoknak és helyi szolgáltatóknak",
+    "forWho": "AKár 1–2 héten belül kész weboldal",
     "whatYouGet": "Több megkeresés, bizalom, professzionális online jelenlét",
     "whatsDifferent": "Egyéni odafigyelés, átlátható árak, gyors határidő",
     "cta": "Kérj ajánlatot most",
@@ -82,8 +82,7 @@
           "Kulcsszó kutatás",
           "Meta címek és leírások",
           "Heading struktúra optimalizálás",
-          "Google Search Console beállítás",
-          "Sebesség optimalizálás"
+          "Google Search Console beállítás"
         ],
         "timeframe": "3-5 nap",
         "price": "50 000 Ft-tól"
@@ -126,7 +125,7 @@
   },
   "pricing": {
     "title": "Árak",
-    "subtitle": "Átlátható, versenykép es árazás kisvállalkozásoknak",
+    "subtitle": "Átlátható, versenyképes árazás kisvállalkozásoknak",
     "disclaimer": "Az árak tájékoztató jellegűek, minden projekt előtt személyre szabott ajánlatot adok.",
     "paymentTerms": "Fizetési feltételek: 50% előleg szerződéskor, 50% átadáskor.",
     "packages": {
@@ -144,7 +143,7 @@
       },
       "business": {
         "name": "Business Weboldal",
-        "description": "Főoldal, szolgáltatások, rólam, referenciák, kapcsolat – minden, ami kell.",
+        "description": "Főoldal, szolgáltatások, rólam, referenciák, kapcsolat - minden, ami kell.",
         "price": "180 000 - 220 000 Ft-tól",
         "features": [
           "3-5 oldal egyedi design",
@@ -220,7 +219,7 @@
   },
   "about": {
     "title": "Rólam",
-    "description": "Weboldalakat készítek kisvállalkozásoknak, akik szeretnének professzionális online jelenlétet, de nem akarnak heteket várni vagy átláthatatlan árakkal találkozni. Hiszem, hogy minden vállalkozás megérdemel egy gyors, szép és működő weboldalt – érthetően, egyszerűen, rejtett költségek nélkül."
+    "description": "Weboldalakat készítek kisvállalkozásoknak, akik szeretnének professzionális online jelenlétet, de nem akarnak heteket várni vagy átláthatatlan árakkal találkozni. Hiszem, hogy minden vállalkozás megérdemel egy gyors, szép és működő weboldalt - érthetően, egyszerűen, rejtett költségek nélkül."
   },
   "references": {
     "title": "Referenciák",

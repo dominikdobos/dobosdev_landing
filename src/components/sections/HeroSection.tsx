@@ -42,7 +42,7 @@ export function HeroSection() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.4, duration: 0.5 }}
-              className="text-5xl md:text-7xl lg:text-8xl font-black mb-2 tracking-tight"
+              className="text-3xl md:text-3xl lg:text-5xl font-black mb-2 tracking-tight"
             >
               <span className="text-foreground">Dobos</span>
               <span className="text-gray-500">D</span>
@@ -65,7 +65,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 leading-tight text-center"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-center"
           >
             {t("hero.title")}
           </motion.h2>
