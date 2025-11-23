@@ -5,11 +5,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/common/ThemeToggle";
 import { LanguageToggle } from "@/components/common/LanguageToggle";
+import { useNavigate } from "react-router-dom";
 
 const navItems = ["home", "services", "process", "pricing", "references", "faq", "contact"];
 
 export function Header() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const navigate = useNavigate();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -25,13 +27,28 @@ export function Header() {
     // Close menu first for better UX
     setIsMobileMenuOpen(false);
 
-    // Small delay to let the menu close, then scroll
-    setTimeout(() => {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+    // Map section ID to URL path based on language
+    let path = sectionId;
+    if (i18n.language === 'hu') {
+      const huMap: Record<string, string> = {
+        'services': 'szolgaltatasok',
+        'process': 'folyamat',
+        'pricing': 'arak',
+        'references': 'referenciak',
+        'faq': 'gyik',
+        'contact': 'kapcsolat'
+      };
+      if (huMap[sectionId]) {
+        path = huMap[sectionId];
       }
-    }, 100);
+    }
+
+    // Navigate to the URL (App.tsx will handle scrolling)
+    if (sectionId === 'home') {
+      navigate('/');
+    } else {
+      navigate(`/${path}`);
+    }
   };
 
   return (

@@ -34,6 +34,31 @@ function MainPage() {
     }
   }, [location]);
 
+  // Handle specific path redirects to sections
+  useEffect(() => {
+    const path = location.pathname.substring(1); // remove leading slash
+    if (['services', 'process', 'pricing', 'faq', 'contact', 'references', 'szolgaltatasok', 'folyamat', 'arak', 'referenciak', 'gyik', 'kapcsolat'].includes(path)) {
+      // Map hungarian paths to english IDs
+      const pathToIdMap: Record<string, string> = {
+        'szolgaltatasok': 'services',
+        'folyamat': 'process',
+        'arak': 'pricing',
+        'referenciak': 'references',
+        'gyik': 'faq',
+        'kapcsolat': 'contact'
+      };
+      
+      const elementId = pathToIdMap[path] || path;
+      
+      setTimeout(() => {
+        const element = document.getElementById(elementId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    }
+  }, [location]);
+
   useEffect(() => {
     const updateGridSquares = () => {
       const width = window.innerWidth;
@@ -102,6 +127,18 @@ function App() {
           <div className="min-h-screen bg-background text-foreground">
             <Routes>
               <Route path="/" element={<MainPage />} />
+              <Route path="/services" element={<MainPage />} />
+              <Route path="/process" element={<MainPage />} />
+              <Route path="/pricing" element={<MainPage />} />
+              <Route path="/faq" element={<MainPage />} />
+              <Route path="/contact" element={<MainPage />} />
+              <Route path="/references" element={<MainPage />} />
+              <Route path="/szolgaltatasok" element={<MainPage />} />
+              <Route path="/folyamat" element={<MainPage />} />
+              <Route path="/arak" element={<MainPage />} />
+              <Route path="/referenciak" element={<MainPage />} />
+              <Route path="/gyik" element={<MainPage />} />
+              <Route path="/kapcsolat" element={<MainPage />} />
               <Route path="/reference/:id" element={<ReferencePage />} />
             </Routes>
           </div>
