@@ -38,7 +38,7 @@ export function PricingSection() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {packages.map((pkg, index) => {
-            const isPopular = t(`pricing.packages.${pkg}.popular`, { returnObjects: true }) === true;
+            const isPopular = (t(`pricing.packages.${pkg}.popular`, { returnObjects: true }) as unknown) === true;
             const animationVariants = [
               "fadeUp",
               "fadeDown",

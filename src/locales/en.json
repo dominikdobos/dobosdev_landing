@@ -140,7 +140,8 @@
           "Contact form",
           "Basic SEO",
           "1-2 rounds of revisions"
-        ]
+        ],
+        "popular": true
       },
       "business": {
         "name": "Business Website",
@@ -153,8 +154,7 @@
           "Google Analytics setup",
           "Basic SEO",
           "2 rounds of revisions"
-        ],
-        "popular": true
+        ]
       },
       "redesign": {
         "name": "Redesign",

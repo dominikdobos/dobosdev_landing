@@ -139,7 +139,8 @@
           "Kapcsolatfelvételi űrlap",
           "Alap SEO",
           "1-2 kör módosítás"
-        ]
+        ],
+        "popular": true
       },
       "business": {
         "name": "Business Weboldal",
@@ -152,8 +153,7 @@
           "Google Analytics beállítás",
           "Alap SEO",
           "2 kör módosítás"
-        ],
-        "popular": true
+        ]
       },
       "redesign": {
         "name": "Redesign",
