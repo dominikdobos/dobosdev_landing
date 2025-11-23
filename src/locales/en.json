@@ -317,6 +317,8 @@
       "address": "Business Address",
       "addressValue": "1239 Budapest, Tengelice utca 11.",
       "phone": "Phone",
+      "chamber": "Chamber",
+      "chamberValue": "Budapest Chamber of Commerce and Industry",
       "euDispute": "The European Commission's online dispute resolution platform is available at:"
     },
     "privacy": {

@@ -154,6 +154,21 @@ export function ImpresszumModal({ open, onOpenChange }: ImpresszumModalProps) {
                     </a>
                   </div>
                 </div>
+
+                {/* Chamber */}
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <Building2 className="h-6 w-6 text-primary" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="font-semibold mb-1">
+                      {t("legal.impresszum.chamber")}
+                    </div>
+                    <div className="text-muted-foreground">
+                      {t("legal.impresszum.chamberValue")}
+                    </div>
+                  </div>
+                </div>
               </div>
 
               {/* EU Online Dispute Resolution */}

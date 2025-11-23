@@ -316,6 +316,8 @@
       "address": "Székhely",
       "addressValue": "1239 Budapest, Tengelice utca 11.",
       "phone": "Telefon",
+      "chamber": "Kamara",
+      "chamberValue": "Budapesti Kereskedelmi és Iparkamara",
       "euDispute": "Az Európai Bizottság online vitarendezési platformja elérhető itt:"
     },
     "privacy": {
