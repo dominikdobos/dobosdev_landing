@@ -26,7 +26,7 @@ interface InteractiveGridPatternProps extends React.SVGProps<SVGSVGElement> {
  * @see InteractiveGridPatternProps for the props interface.
  * @returns A React component.
  */
-export function InteractiveGridPattern({
+export const InteractiveGridPattern = React.memo(function InteractiveGridPattern({
   width = 40,
   height = 40,
   squares = [24, 24],
@@ -42,35 +42,57 @@ export function InteractiveGridPattern({
       style={{ opacity: 1 }}
       {...props}
     >
-      {Array.from({ length: horizontal * vertical }).map((_, index) => {
-        const col = index % horizontal;
-        const row = Math.floor(index / horizontal);
-        const x = `${(col / horizontal) * 100}%`;
-        const y = `${(row / vertical) * 100}%`;
-        const widthPercent = `${(1 / horizontal) * 100}%`;
-        const heightPercent = `${(1 / vertical) * 100}%`;
-
-        return (
-          <rect
-            key={index}
-            x={x}
-            y={y}
-            width={widthPercent}
-            height={heightPercent}
-            fill="transparent"
+      {/* If squares contains -1 (mobile flag), render a single static path grid */}
+      {horizontal === -1 ? (
+        <pattern
+          id="grid-pattern-mobile"
+          width={width}
+          height={height}
+          patternUnits="userSpaceOnUse"
+        >
+          <path
+            d={`M ${width} 0 L 0 0 0 ${height}`}
+            fill="none"
             stroke="currentColor"
-            strokeWidth="0.6"
+            strokeWidth="0.5"
             className={cn(
               "stroke-gray-400/30 dark:stroke-gray-500/30",
-              "transition-colors duration-1000 ease-in-out hover:duration-100",
-              "hover:fill-primary/20 hover:stroke-primary",
               squaresClassName
             )}
           />
-        );
-      })}
+        </pattern>
+      ) : (
+        Array.from({ length: horizontal * vertical }).map((_, index) => {
+          const col = index % horizontal;
+          const row = Math.floor(index / horizontal);
+          const x = `${(col / horizontal) * 100}%`;
+          const y = `${(row / vertical) * 100}%`;
+          const widthPercent = `${(1 / horizontal) * 100}%`;
+          const heightPercent = `${(1 / vertical) * 100}%`;
+
+          return (
+            <rect
+              key={index}
+              x={x}
+              y={y}
+              width={widthPercent}
+              height={heightPercent}
+              fill="transparent"
+              stroke="currentColor"
+              strokeWidth="0.6"
+              className={cn(
+                "stroke-gray-400/30 dark:stroke-gray-500/30",
+                "transition-colors duration-1000 ease-in-out hover:duration-100",
+                "hover:fill-primary/20 hover:stroke-primary",
+                squaresClassName
+              )}
+            />
+          );
+        })
+      )}
+      {horizontal === -1 && <rect width="100%" height="100%" fill="url(#grid-pattern-mobile)" />}
     </svg>
   );
-}
+});
 
 export type { InteractiveGridPatternProps };

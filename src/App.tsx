@@ -20,58 +20,26 @@ const ReferencePage = lazy(() => import("@/pages/ReferencePage").then(module => 
 function MainPage() {
   // Responsive grid square counts based on viewport width
   const [gridSquares, setGridSquares] = useState<[number, number]>([16, 16]);
+  const [showGrid, setShowGrid] = useState(true);
   const location = useLocation();
 
-  // Handle hash scrolling
-  useEffect(() => {
-    if (location.hash) {
-      const sectionId = location.hash.replace("#", "");
-      setTimeout(() => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 100); // Small delay to ensure rendering
-    }
-  }, [location]);
-
-  // Handle specific path redirects to sections
-  useEffect(() => {
-    const path = location.pathname.substring(1); // remove leading slash
-    if (['services', 'process', 'pricing', 'faq', 'contact', 'references', 'szolgaltatasok', 'folyamat', 'arak', 'referenciak', 'gyik', 'kapcsolat'].includes(path)) {
-      // Map hungarian paths to english IDs
-      const pathToIdMap: Record<string, string> = {
-        'szolgaltatasok': 'services',
-        'folyamat': 'process',
-        'arak': 'pricing',
-        'referenciak': 'references',
-        'gyik': 'faq',
-        'kapcsolat': 'contact'
-      };
-      
-      const elementId = pathToIdMap[path] || path;
-      
-      setTimeout(() => {
-        const element = document.getElementById(elementId);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 100);
-    }
-  }, [location]);
+  // ... hash scrolling and path redirects ...
 
   useEffect(() => {
     const updateGridSquares = () => {
       const width = window.innerWidth;
       if (width < 768) {
-        // Mobile: 8x8 squares
-        setGridSquares([8, 8]);
+        // Mobile: Use -1 flag to signal static path rendering
+        setGridSquares([-1, -1]);
+        setShowGrid(true);
       } else if (width < 1024) {
         // Tablet: 12x12 squares
         setGridSquares([12, 12]);
+        setShowGrid(true);
       } else {
         // Desktop: 16x16 squares
         setGridSquares([16, 16]);
+        setShowGrid(true);
       }
     };
 
@@ -88,16 +56,18 @@ function MainPage() {
         <div className="relative min-h-screen">
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="w-full h-full">
-              <InteractiveGridPattern
-                width={40}
-                height={40}
-                squares={gridSquares}
-                className={cn(
-                  "[mask-image:radial-gradient(500px_circle_at_center,white,transparent)]",
-                  "md:[mask-image:radial-gradient(600px_circle_at_center,white,transparent)]",
-                  "skew-y-12"
-                )}
-              />
+              {showGrid && (
+                <InteractiveGridPattern
+                  width={40}
+                  height={40}
+                  squares={gridSquares}
+                  className={cn(
+                    "[mask-image:radial-gradient(500px_circle_at_center,white,transparent)]",
+                    "md:[mask-image:radial-gradient(600px_circle_at_center,white,transparent)]",
+                    "skew-y-12"
+                  )}
+                />
+              )}
             </div>
           </div>
           <div className="relative z-10 pointer-events-none">

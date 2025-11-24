@@ -46,6 +46,8 @@ export function Header() {
     // Navigate to the URL (App.tsx will handle scrolling)
     if (sectionId === 'home') {
       navigate('/');
+      // Force scroll to top if already on home page
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
       navigate(`/${path}`);
     }
