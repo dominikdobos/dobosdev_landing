@@ -6,20 +6,53 @@ import { HeroSection } from "@/components/sections/HeroSection";
 import { InteractiveGridPattern } from "@/components/common/InteractiveGridPattern";
 import { cn } from "@/lib/utils";
 import { useState, useEffect, Suspense, lazy } from "react";
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import { LazyMotion } from "framer-motion";
 import "@/lib/i18n";
 
 // Load Framer Motion features asynchronously to reduce initial bundle size
 const loadFeatures = () => import("./features").then((res) => res.default);
 
-const ServicesSection = lazy(() => import("@/components/sections/ServicesSection").then(module => ({ default: module.ServicesSection })));
-const ProcessSection = lazy(() => import("@/components/sections/ProcessSection").then(module => ({ default: module.ProcessSection })));
-const PricingSection = lazy(() => import("@/components/sections/PricingSection").then(module => ({ default: module.PricingSection })));
-const FAQSection = lazy(() => import("@/components/sections/FAQSection").then(module => ({ default: module.FAQSection })));
-const AboutReferencesSection = lazy(() => import("@/components/sections/AboutReferencesSection").then(module => ({ default: module.AboutReferencesSection })));
-const ContactSection = lazy(() => import("@/components/sections/ContactSection").then(module => ({ default: module.ContactSection })));
-const ReferencePage = lazy(() => import("@/pages/ReferencePage").then(module => ({ default: module.ReferencePage })));
+const ServicesSection = lazy(() =>
+  import("@/components/sections/ServicesSection").then((module) => ({
+    default: module.ServicesSection,
+  }))
+);
+const ProcessSection = lazy(() =>
+  import("@/components/sections/ProcessSection").then((module) => ({
+    default: module.ProcessSection,
+  }))
+);
+const PricingSection = lazy(() =>
+  import("@/components/sections/PricingSection").then((module) => ({
+    default: module.PricingSection,
+  }))
+);
+const FAQSection = lazy(() =>
+  import("@/components/sections/FAQSection").then((module) => ({
+    default: module.FAQSection,
+  }))
+);
+const AboutReferencesSection = lazy(() =>
+  import("@/components/sections/AboutReferencesSection").then((module) => ({
+    default: module.AboutReferencesSection,
+  }))
+);
+const ContactSection = lazy(() =>
+  import("@/components/sections/ContactSection").then((module) => ({
+    default: module.ContactSection,
+  }))
+);
+const ReferencePage = lazy(() =>
+  import("@/pages/ReferencePage").then((module) => ({
+    default: module.ReferencePage,
+  }))
+);
 
 function MainPage() {
   // Responsive grid square counts based on viewport width
@@ -42,19 +75,34 @@ function MainPage() {
 
   useEffect(() => {
     const path = location.pathname.substring(1); // remove leading slash
-    if (['services', 'process', 'pricing', 'faq', 'contact', 'references', 'szolgaltatasok', 'folyamat', 'arak', 'referenciak', 'gyik', 'kapcsolat'].includes(path)) {
+    if (
+      [
+        "services",
+        "process",
+        "pricing",
+        "faq",
+        "contact",
+        "references",
+        "szolgaltatasok",
+        "folyamat",
+        "arak",
+        "referenciak",
+        "gyik",
+        "kapcsolat",
+      ].includes(path)
+    ) {
       // Map hungarian paths to english IDs
       const pathToIdMap: Record<string, string> = {
-        'szolgaltatasok': 'services',
-        'folyamat': 'process',
-        'arak': 'pricing',
-        'referenciak': 'references',
-        'gyik': 'faq',
-        'kapcsolat': 'contact'
+        szolgaltatasok: "services",
+        folyamat: "process",
+        arak: "pricing",
+        referenciak: "references",
+        gyik: "faq",
+        kapcsolat: "contact",
       };
-      
+
       const elementId = pathToIdMap[path] || path;
-      
+
       // Try immediately first
       const element = document.getElementById(elementId);
       if (element) {
@@ -142,7 +190,7 @@ function App() {
   return (
     <ThemeProvider>
       <LanguageProvider>
-        <LazyMotion features={loadFeatures} strict>
+        <LazyMotion features={loadFeatures}>
           <Router>
             <div className="min-h-screen bg-background text-foreground">
               <Suspense fallback={<div className="min-h-screen" />}>

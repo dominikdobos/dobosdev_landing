@@ -20,59 +20,34 @@ export function HeroSection() {
     >
       <div className="container mx-auto">
         <div className="max-w-5xl mx-auto">
-          {/* Refined DobosDEV Branding */}
-          <m.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="mb-12 text-center"
-          >
+          {/* Refined DobosDEV Branding - LCP Optimized (Removed Animations) */}
+          <div className="mb-12 text-center">
             {/* Subtle full name */}
-            <m.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="text-sm md:text-sm text-muted-foreground/80 mb-3 tracking-wide uppercase"
-            >
+            <p className="text-sm md:text-sm text-muted-foreground/80 mb-3 tracking-wide uppercase">
               {t("hero.soleProprietor")}
-            </m.p>
+            </p>
 
-          {/* Main DobosDEV Logo */}
-          <h1 className="text-3xl md:text-3xl lg:text-5xl font-black mb-2 tracking-tight">
-            <span className="text-foreground">Dobos</span>
-            <span className="text-gray-500">D</span>
-            <span className="text-primary">EV</span>
-          </h1>
+            {/* Main DobosDEV Logo */}
+            <h1 className="text-3xl md:text-3xl lg:text-5xl font-black mb-2 tracking-tight">
+              <span className="text-foreground">Dobos</span>
+              <span className="text-gray-500">D</span>
+              <span className="text-primary">EV</span>
+            </h1>
 
             {/* Subtle wordplay hint */}
-            <m.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
-              className="text-sm md:text-sm text-muted-foreground/70 tracking-widest"
-            >
+            <p className="text-sm md:text-sm text-muted-foreground/70 tracking-widest">
               D · E · V · E · L · O · P · E · R
-            </m.p>
-          </m.div>
+            </p>
+          </div>
 
-          {/* Main Heading */}
-          <m.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-center"
-          >
+          {/* Main Heading - LCP Optimized (Removed Animations) */}
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-center">
             {t("hero.title")}
-          </m.h2>
+          </h2>
 
-          <m.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto text-center"
-          >
+          <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto text-center">
             {t("hero.subtitle")}
-          </m.p>
+          </p>
 
           <m.div
             initial={{ opacity: 0, y: 20 }}

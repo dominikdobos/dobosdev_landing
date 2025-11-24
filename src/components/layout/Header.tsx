@@ -18,70 +18,26 @@ export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
+  // Helper to get absolute position from top of document
+  const getAbsoluteTop = (element: HTMLElement) => {
+    let top = 0;
+    let current: HTMLElement | null = element;
+    while (current) {
+      top += current.offsetTop;
+      current = current.offsetParent as HTMLElement;
+    }
+    return top;
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
 
-      // Find the section that is currently most visible
-      const sections = ["home", ...navItems];
       let currentSection = "home";
       
-      // Helper to get element by ID including mapped IDs
-      const getSectionElement = (id: string) => {
-        if (id === 'home') {
-          // Hero section usually doesn't have an ID, but it's at the top.
-          // Assuming the first section is home or we check scroll position near top.
-          return window.scrollY < 100 ? document.body : null;
-        }
-        
-        let elementId = id;
-        // Try direct ID first
-        let element = document.getElementById(elementId);
-        
-        // If not found, try mapped Hungarian IDs if applicable, though IDs in DOM should be static usually
-        if (!element && i18n.language === 'hu') {
-           const huMap: Record<string, string> = {
-            'services': 'szolgaltatasok',
-            'process': 'folyamat',
-            'pricing': 'arak',
-            'references': 'referenciak',
-            'faq': 'gyik',
-            'contact': 'kapcsolat'
-          };
-          if (huMap[id]) elementId = huMap[id];
-          element = document.getElementById(elementId);
-        }
-        return element;
-      };
-
-      for (const section of sections) {
-        const element = getSectionElement(section);
-        if (element) {
-           // Use a simple check: if the section top is within the viewport top area
-           // or closest to top.
-           // Better logic: check which section occupies most of the screen?
-           // Or just simple scrollspy: active if top is <= viewport height * 0.3
-           // Since we can't easily get all elements refs here without querySelector,
-           // let's use document.getElementById which is cheap enough.
-        }
-      }
-      
-      // More robust scroll spy using IntersectionObserver is better, but inside scroll event:
-      // Let's just check offsets.
       // Calculate trigger point: 1/3 down the screen
       // This ensures the section is significantly visible before switching
       const scrollPosition = window.scrollY + (window.innerHeight / 3);
-
-      // Helper to get absolute position from top of document
-      const getAbsoluteTop = (element: HTMLElement) => {
-        let top = 0;
-        let current: HTMLElement | null = element;
-        while (current) {
-          top += current.offsetTop;
-          current = current.offsetParent as HTMLElement;
-        }
-        return top;
-      };
 
       for (const section of navItems) {
         const element = document.getElementById(section);
@@ -101,9 +57,6 @@ export function Header() {
       
       if (currentSection !== activeSection) {
         setActiveSection(currentSection);
-        // Optionally update URL without scroll
-        // Note: updating URL on every scroll section change might be too noisy for browser history
-        // window.history.replaceState(null, '', currentSection === 'home' ? '/' : `/${currentSection}`);
       }
     };
     
@@ -113,9 +66,6 @@ export function Header() {
   }, [activeSection]);
 
   const scrollToSection = (sectionId: string) => {
-    // Close menu first for better UX
-    setIsMobileMenuOpen(false);
-
     // Map section ID to URL path based on language
     let path = sectionId;
     if (i18n.language === 'hu') {
@@ -132,30 +82,37 @@ export function Header() {
       }
     }
 
-    // Handle navigation
-    if (sectionId === 'home') {
-      if (location.pathname === '/') {
-        // If already on home, just scroll to top
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+    const performScroll = () => {
+      if (sectionId === 'home') {
+        if (location.pathname === '/') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          navigate('/');
+        }
       } else {
-        navigate('/');
-        // Scroll will be handled by App.tsx useEffect
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const absoluteTop = getAbsoluteTop(element);
+          const headerOffset = 80;
+          
+          window.scrollTo({ 
+            top: absoluteTop - headerOffset, 
+            behavior: 'smooth' 
+          });
+          
+          window.history.pushState(null, '', `/${path}`);
+        } else {
+          navigate(`/${path}`);
+        }
       }
+    };
+
+    if (isMobileMenuOpen) {
+      setIsMobileMenuOpen(false);
+      // Delay scroll to allow menu closing animation to start/finish
+      setTimeout(performScroll, 300);
     } else {
-      // Check if we are already on the page but just need to scroll
-      // Note: For now, we always navigate to ensure URL updates, but we could optimize this
-      // if we are already on the right route pattern.
-      
-      // If we are already on the main page (any section), try to scroll directly first
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-        // Update URL without full navigation if possible, or just let it be
-        // navigate(`/${path}`, { replace: true }); // Optional: might trigger router
-        window.history.pushState(null, '', `/${path}`);
-      } else {
-        navigate(`/${path}`);
-      }
+      performScroll();
     }
   };
 
@@ -170,16 +127,14 @@ export function Header() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Simple Logo - No Tooltip */}
-          <m.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="text-2xl md:text-3xl font-bold cursor-pointer"
+          <div
+            className="text-2xl md:text-3xl font-bold cursor-pointer flex items-center"
             onClick={() => scrollToSection("home")}
           >
             <span className={cn("text-foreground transition-colors", activeSection === "home" && "text-primary")}>Dobos</span>
             <span className="text-gray-500">D</span>
             <span className="text-primary">EV</span>
-          </m.div>
+          </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-6">

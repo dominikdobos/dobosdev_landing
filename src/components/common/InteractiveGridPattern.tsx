@@ -26,43 +26,41 @@ interface InteractiveGridPatternProps extends React.SVGProps<SVGSVGElement> {
  * @see InteractiveGridPatternProps for the props interface.
  * @returns A React component.
  */
-export const InteractiveGridPattern = React.memo(function InteractiveGridPattern({
-  width = 40,
-  height = 40,
-  squares = [24, 24],
-  className,
-  squaresClassName,
-  ...props
-}: InteractiveGridPatternProps) {
-  const [horizontal, vertical] = squares;
+export const InteractiveGridPattern = React.memo(
+  function InteractiveGridPattern({
+    width = 40,
+    height = 40,
+    squares = [24, 24],
+    className,
+    squaresClassName,
+    ...props
+  }: InteractiveGridPatternProps) {
+    const [horizontal, vertical] = squares;
 
-  return (
-    <svg
-      className={cn("absolute inset-0 h-full w-full", className)}
-      style={{ opacity: 1 }}
-      {...props}
-    >
-      {/* If squares contains -1 (mobile flag), render a single static path grid */}
-      {horizontal === -1 ? (
-        <pattern
-          id="grid-pattern-mobile"
-          width={width}
-          height={height}
-          patternUnits="userSpaceOnUse"
-        >
-          <path
-            d={`M ${width} 0 L 0 0 0 ${height}`}
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="0.5"
-            className={cn(
-              "stroke-gray-400/30 dark:stroke-gray-500/30",
-              squaresClassName
-            )}
-          />
-        </pattern>
-      ) : (
-        Array.from({ length: horizontal * vertical }).map((_, index) => {
+    // Mobile Optimization: Pure CSS background
+    if (horizontal === -1) {
+      return (
+        <div
+          className={cn(
+            "absolute inset-0 h-full w-full",
+            "bg-[image:linear-gradient(to_right,theme(colors.gray.400/0.3)_1px,transparent_1px),linear-gradient(to_bottom,theme(colors.gray.400/0.3)_1px,transparent_1px)]",
+            "dark:bg-[image:linear-gradient(to_right,theme(colors.gray.500/0.3)_1px,transparent_1px),linear-gradient(to_bottom,theme(colors.gray.500/0.3)_1px,transparent_1px)]",
+            className
+          )}
+          style={{
+            backgroundSize: `${width}px ${height}px`,
+          }}
+        />
+      );
+    }
+
+    return (
+      <svg
+        className={cn("absolute inset-0 h-full w-full", className)}
+        style={{ opacity: 1 }}
+        {...props}
+      >
+        {Array.from({ length: horizontal * vertical }).map((_, index) => {
           const col = index % horizontal;
           const row = Math.floor(index / horizontal);
           const x = `${(col / horizontal) * 100}%`;
@@ -88,11 +86,10 @@ export const InteractiveGridPattern = React.memo(function InteractiveGridPattern
               )}
             />
           );
-        })
-      )}
-      {horizontal === -1 && <rect width="100%" height="100%" fill="url(#grid-pattern-mobile)" />}
-    </svg>
-  );
-});
+        })}
+      </svg>
+    );
+  }
+);
 
 export type { InteractiveGridPatternProps };
