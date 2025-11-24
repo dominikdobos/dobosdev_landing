@@ -150,7 +150,9 @@ export function Header() {
                   : "/assets/logo/logo_full_dark.png"
               }
               alt="DobosDEV Logo"
-              className="h-40 md:h-52 w-auto"
+              width="100"
+              height="28"
+              className="h-5 md:h-7 w-auto"
             />
           </div>
 

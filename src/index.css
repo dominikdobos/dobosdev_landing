@@ -85,3 +85,9 @@ body {
   }
 }
 
+/* Content Visibility Optimization */
+.content-visibility-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1000px; /* Approximation of section height */
+}
+

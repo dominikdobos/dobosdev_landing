@@ -3,11 +3,13 @@ import { useTranslation } from "react-i18next";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { ImpresszumModal } from "@/components/modals/ImpresszumModal";
 import { PrivacyPolicyModal } from "@/components/modals/PrivacyPolicyModal";
+import { useTheme } from "@/contexts/ThemeContext";
 
 const navItems = ["home", "services", "process", "pricing", "faq", "contact"];
 
 export function Footer() {
   const { t } = useTranslation();
+  const { theme } = useTheme();
   const currentYear = new Date().getFullYear();
   const [impresszumOpen, setImpresszumOpen] = useState(false);
   const [privacyOpen, setPrivacyOpen] = useState(false);
@@ -25,11 +27,19 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
           <div>
-            <h3 className="text-2xl font-bold mb-2">
-              <span className="text-foreground">Dobos</span>
-              <span className="text-gray-500">D</span>
-              <span className="text-primary">EV</span>
-            </h3>
+            <div className="mb-4">
+              <img
+                src={
+                  theme === "light"
+                    ? "/assets/logo/logo_full_light.png"
+                    : "/assets/logo/logo_full_dark.png"
+                }
+                alt="DobosDEV Logo"
+                width="100"
+                height="32"
+                className="h-6 md:h-8 w-auto"
+              />
+            </div>
             <p className="text-xs text-muted-foreground mb-3 italic">
               {t("footer.businessName")}
             </p>

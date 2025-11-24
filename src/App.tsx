@@ -172,12 +172,24 @@ function MainPage() {
         {/* Other sections */}
         <div className="relative z-10">
           <Suspense fallback={<div className="py-20" />}>
-            <ServicesSection />
-            <ProcessSection />
-            <PricingSection />
-            <AboutReferencesSection />
-            <FAQSection />
-            <ContactSection />
+            <div className="content-visibility-auto contain-intrinsic-size-[1000px]">
+               <ServicesSection />
+            </div>
+            <div className="content-visibility-auto contain-intrinsic-size-[1000px]">
+               <ProcessSection />
+            </div>
+            <div className="content-visibility-auto contain-intrinsic-size-[1000px]">
+               <PricingSection />
+            </div>
+            <div className="content-visibility-auto contain-intrinsic-size-[1000px]">
+               <AboutReferencesSection />
+            </div>
+            <div className="content-visibility-auto contain-intrinsic-size-[1000px]">
+               <FAQSection />
+            </div>
+            <div className="content-visibility-auto contain-intrinsic-size-[1000px]">
+               <ContactSection />
+            </div>
           </Suspense>
         </div>
       </main>
