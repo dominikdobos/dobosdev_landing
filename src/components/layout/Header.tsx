@@ -5,23 +5,112 @@ import { m, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/common/ThemeToggle";
 import { LanguageToggle } from "@/components/common/LanguageToggle";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+import { cn } from "@/lib/utils";
 
 const navItems = ["services", "process", "pricing", "references", "faq", "contact"];
 
 export function Header() {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
+  const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
+
+      // Find the section that is currently most visible
+      const sections = ["home", ...navItems];
+      let currentSection = "home";
+      
+      // Helper to get element by ID including mapped IDs
+      const getSectionElement = (id: string) => {
+        if (id === 'home') {
+          // Hero section usually doesn't have an ID, but it's at the top.
+          // Assuming the first section is home or we check scroll position near top.
+          return window.scrollY < 100 ? document.body : null;
+        }
+        
+        let elementId = id;
+        // Try direct ID first
+        let element = document.getElementById(elementId);
+        
+        // If not found, try mapped Hungarian IDs if applicable, though IDs in DOM should be static usually
+        if (!element && i18n.language === 'hu') {
+           const huMap: Record<string, string> = {
+            'services': 'szolgaltatasok',
+            'process': 'folyamat',
+            'pricing': 'arak',
+            'references': 'referenciak',
+            'faq': 'gyik',
+            'contact': 'kapcsolat'
+          };
+          if (huMap[id]) elementId = huMap[id];
+          element = document.getElementById(elementId);
+        }
+        return element;
+      };
+
+      for (const section of sections) {
+        const element = getSectionElement(section);
+        if (element) {
+           // Use a simple check: if the section top is within the viewport top area
+           // or closest to top.
+           // Better logic: check which section occupies most of the screen?
+           // Or just simple scrollspy: active if top is <= viewport height * 0.3
+           // Since we can't easily get all elements refs here without querySelector,
+           // let's use document.getElementById which is cheap enough.
+        }
+      }
+      
+      // More robust scroll spy using IntersectionObserver is better, but inside scroll event:
+      // Let's just check offsets.
+      // Calculate trigger point: 1/3 down the screen
+      // This ensures the section is significantly visible before switching
+      const scrollPosition = window.scrollY + (window.innerHeight / 3);
+
+      // Helper to get absolute position from top of document
+      const getAbsoluteTop = (element: HTMLElement) => {
+        let top = 0;
+        let current: HTMLElement | null = element;
+        while (current) {
+          top += current.offsetTop;
+          current = current.offsetParent as HTMLElement;
+        }
+        return top;
+      };
+
+      for (const section of navItems) {
+        const element = document.getElementById(section);
+        if (element) {
+          const absoluteTop = getAbsoluteTop(element);
+          const offsetHeight = element.offsetHeight;
+          
+          if (scrollPosition >= absoluteTop && scrollPosition < absoluteTop + offsetHeight) {
+            currentSection = section;
+            break;
+          }
+        }
+      }
+      
+      // Default to home if no other section is active (implicit via initialization)
+      if (window.scrollY < window.innerHeight / 2) currentSection = "home";
+      
+      if (currentSection !== activeSection) {
+        setActiveSection(currentSection);
+        // Optionally update URL without scroll
+        // Note: updating URL on every scroll section change might be too noisy for browser history
+        // window.history.replaceState(null, '', currentSection === 'home' ? '/' : `/${currentSection}`);
+      }
     };
+    
     window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Check on mount
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [activeSection]);
 
   const scrollToSection = (sectionId: string) => {
     // Close menu first for better UX
@@ -87,7 +176,7 @@ export function Header() {
             className="text-2xl md:text-3xl font-bold cursor-pointer"
             onClick={() => scrollToSection("home")}
           >
-            <span className="text-foreground">Dobos</span>
+            <span className={cn("text-foreground transition-colors", activeSection === "home" && "text-primary")}>Dobos</span>
             <span className="text-gray-500">D</span>
             <span className="text-primary">EV</span>
           </m.div>
@@ -101,9 +190,19 @@ export function Header() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 onClick={() => scrollToSection(item)}
-                className="text-sm font-medium hover:text-primary transition-colors"
+                className={cn(
+                  "text-sm font-medium transition-colors relative",
+                  activeSection === item ? "text-primary" : "hover:text-primary"
+                )}
               >
                 {t(`nav.${item}`)}
+                {activeSection === item && (
+                  <m.div
+                    layoutId="activeSection"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
               </m.button>
             ))}
           </nav>
@@ -177,7 +276,12 @@ export function Header() {
                   }}
                   exit={{ opacity: 0, x: -20 }}
                   onClick={() => scrollToSection(item)}
-                  className="text-left py-2 px-4 rounded-md hover:bg-accent transition-colors"
+                  className={cn(
+                    "text-left py-2 px-4 rounded-md transition-colors",
+                    activeSection === item
+                      ? "bg-primary/10 text-primary font-medium"
+                      : "hover:bg-accent"
+                  )}
                 >
                   {t(`nav.${item}`)}
                 </m.button>
