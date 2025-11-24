@@ -22,10 +22,17 @@ export function ContactSection() {
   const [privacyConsent, setPrivacyConsent] = useState(false);
   const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isCaptchaLoaded, setIsCaptchaLoaded] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<
     "idle" | "success" | "error"
   >("idle");
   const [privacyModalOpen, setPrivacyModalOpen] = useState(false);
+
+  const handleInteraction = () => {
+    if (!isCaptchaLoaded) {
+      setIsCaptchaLoaded(true);
+    }
+  };
 
   const onHCaptchaChange = (token: string) => {
     setCaptchaToken(token);
@@ -191,6 +198,7 @@ export function ContactSection() {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
+                      onFocus={handleInteraction}
                       disabled={isSubmitting}
                       required
                     />
@@ -208,6 +216,7 @@ export function ContactSection() {
                       type="email"
                       value={formData.email}
                       onChange={handleChange}
+                      onFocus={handleInteraction}
                       disabled={isSubmitting}
                       required
                     />
@@ -224,6 +233,7 @@ export function ContactSection() {
                       name="service"
                       value={formData.service}
                       onChange={handleChange as any}
+                      onFocus={handleInteraction}
                       className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                       disabled={isSubmitting}
                       required
@@ -261,19 +271,23 @@ export function ContactSection() {
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
+                      onFocus={handleInteraction}
                       rows={5}
                       disabled={isSubmitting}
                       required
                     />
                   </div>
-
+                  
                   {/* Privacy Consent Checkbox */}
                   <div className="flex items-start gap-3">
                     <input
                       type="checkbox"
                       id="privacyConsent"
                       checked={privacyConsent}
-                      onChange={(e) => setPrivacyConsent(e.target.checked)}
+                      onChange={(e) => {
+                        setPrivacyConsent(e.target.checked);
+                        handleInteraction();
+                      }}
                       disabled={isSubmitting}
                       className="mt-1 h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary"
                       required
@@ -294,14 +308,20 @@ export function ContactSection() {
                     </label>
                   </div>
 
-                  {/* hCaptcha */}
-                  <div className="flex justify-center">
-                    <HCaptcha
-                      sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
-                      onVerify={onHCaptchaChange}
-                      reCaptchaCompat={false}
-                      theme={theme === "dark" ? "dark" : "light"}
-                    />
+                  {/* hCaptcha - Lazy Loaded */}
+                  <div className="flex justify-center min-h-[78px]">
+                    {isCaptchaLoaded ? (
+                      <HCaptcha
+                        sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
+                        onVerify={onHCaptchaChange}
+                        reCaptchaCompat={false}
+                        theme={theme === "dark" ? "dark" : "light"}
+                      />
+                    ) : (
+                      <div className="w-[300px] h-[78px] bg-muted/20 rounded flex items-center justify-center text-xs text-muted-foreground">
+                        {t("contact.form.captchaPlaceholder") || "Captcha loading..."}
+                      </div>
+                    )}
                   </div>
 
                   {/* Success Message */}
