@@ -2,9 +2,11 @@ import { useTranslation } from "react-i18next";
 import { m } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { useTheme } from "@/contexts/ThemeContext";
 
 export function HeroSection() {
   const { t } = useTranslation();
+  const { theme } = useTheme();
 
   const scrollToContact = () => {
     const element = document.getElementById("contact");
@@ -23,16 +25,22 @@ export function HeroSection() {
           {/* Refined DobosDEV Branding - LCP Optimized (Removed Animations) */}
           <div className="mb-12 text-center">
             {/* Subtle full name */}
-            <p className="text-sm md:text-sm text-muted-foreground/80 mb-3 tracking-wide uppercase">
+            <p className="text-sm md:text-sm text-muted-foreground/80 mb-3 md:mb-6 tracking-wide uppercase">
               {t("hero.soleProprietor")}
             </p>
 
-            {/* Main DobosDEV Logo */}
-            <h1 className="text-3xl md:text-3xl lg:text-5xl font-black mb-2 tracking-tight">
-              <span className="text-foreground">Dobos</span>
-              <span className="text-gray-500">D</span>
-              <span className="text-primary">EV</span>
-            </h1>
+            {/* Main DobosDEV Logo - Image Based */}
+            <div className="flex justify-center mb-3 md:mb-6">
+              <img
+                src={
+                  theme === "light"
+                    ? "/assets/logo/logo_noicon_light.png"
+                    : "/assets/logo/logo_noicon_dark.png"
+                }
+                alt="DobosDEV Logo"
+                className="h-12 md:h-14 lg:h-16 w-auto"
+              />
+            </div>
 
             {/* Subtle wordplay hint */}
             <p className="text-sm md:text-sm text-muted-foreground/70 tracking-widest">

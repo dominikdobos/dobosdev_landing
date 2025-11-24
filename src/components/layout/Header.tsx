@@ -7,11 +7,20 @@ import { ThemeToggle } from "@/components/common/ThemeToggle";
 import { LanguageToggle } from "@/components/common/LanguageToggle";
 import { useNavigate, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import { useTheme } from "@/contexts/ThemeContext";
 
-const navItems = ["services", "process", "pricing", "references", "faq", "contact"];
+const navItems = [
+  "services",
+  "process",
+  "pricing",
+  "references",
+  "faq",
+  "contact",
+];
 
 export function Header() {
   const { t, i18n } = useTranslation();
+  const { theme } = useTheme();
   const navigate = useNavigate();
   const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
@@ -34,32 +43,35 @@ export function Header() {
       setIsScrolled(window.scrollY > 20);
 
       let currentSection = "home";
-      
+
       // Calculate trigger point: 1/3 down the screen
       // This ensures the section is significantly visible before switching
-      const scrollPosition = window.scrollY + (window.innerHeight / 3);
+      const scrollPosition = window.scrollY + window.innerHeight / 3;
 
       for (const section of navItems) {
         const element = document.getElementById(section);
         if (element) {
           const absoluteTop = getAbsoluteTop(element);
           const offsetHeight = element.offsetHeight;
-          
-          if (scrollPosition >= absoluteTop && scrollPosition < absoluteTop + offsetHeight) {
+
+          if (
+            scrollPosition >= absoluteTop &&
+            scrollPosition < absoluteTop + offsetHeight
+          ) {
             currentSection = section;
             break;
           }
         }
       }
-      
+
       // Default to home if no other section is active (implicit via initialization)
       if (window.scrollY < window.innerHeight / 2) currentSection = "home";
-      
+
       if (currentSection !== activeSection) {
         setActiveSection(currentSection);
       }
     };
-    
+
     window.addEventListener("scroll", handleScroll);
     handleScroll(); // Check on mount
     return () => window.removeEventListener("scroll", handleScroll);
@@ -68,14 +80,14 @@ export function Header() {
   const scrollToSection = (sectionId: string) => {
     // Map section ID to URL path based on language
     let path = sectionId;
-    if (i18n.language === 'hu') {
+    if (i18n.language === "hu") {
       const huMap: Record<string, string> = {
-        'services': 'szolgaltatasok',
-        'process': 'folyamat',
-        'pricing': 'arak',
-        'references': 'referenciak',
-        'faq': 'gyik',
-        'contact': 'kapcsolat'
+        services: "szolgaltatasok",
+        process: "folyamat",
+        pricing: "arak",
+        references: "referenciak",
+        faq: "gyik",
+        contact: "kapcsolat",
       };
       if (huMap[sectionId]) {
         path = huMap[sectionId];
@@ -83,24 +95,24 @@ export function Header() {
     }
 
     const performScroll = () => {
-      if (sectionId === 'home') {
-        if (location.pathname === '/') {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (sectionId === "home") {
+        if (location.pathname === "/") {
+          window.scrollTo({ top: 0, behavior: "smooth" });
         } else {
-          navigate('/');
+          navigate("/");
         }
       } else {
         const element = document.getElementById(sectionId);
         if (element) {
           const absoluteTop = getAbsoluteTop(element);
           const headerOffset = 80;
-          
-          window.scrollTo({ 
-            top: absoluteTop - headerOffset, 
-            behavior: 'smooth' 
+
+          window.scrollTo({
+            top: absoluteTop - headerOffset,
+            behavior: "smooth",
           });
-          
-          window.history.pushState(null, '', `/${path}`);
+
+          window.history.pushState(null, "", `/${path}`);
         } else {
           navigate(`/${path}`);
         }
@@ -126,14 +138,20 @@ export function Header() {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Simple Logo - No Tooltip */}
+          {/* Simple Logo - Image Based */}
           <div
-            className="text-2xl md:text-3xl font-bold cursor-pointer flex items-center"
+            className="cursor-pointer flex items-center"
             onClick={() => scrollToSection("home")}
           >
-            <span className={cn("text-foreground transition-colors", activeSection === "home" && "text-primary")}>Dobos</span>
-            <span className="text-gray-500">D</span>
-            <span className="text-primary">EV</span>
+            <img
+              src={
+                theme === "light"
+                  ? "/assets/logo/logo_full_light.png"
+                  : "/assets/logo/logo_full_dark.png"
+              }
+              alt="DobosDEV Logo"
+              className="h-40 md:h-52 w-auto"
+            />
           </div>
 
           {/* Desktop Navigation */}
