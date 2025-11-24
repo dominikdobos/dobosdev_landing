@@ -13,6 +13,7 @@ import {
   Routes,
   Route,
   useLocation,
+  Navigate,
 } from "react-router-dom";
 import { LazyMotion } from "framer-motion";
 import "@/lib/i18n";
@@ -53,6 +54,11 @@ const ContactSection = lazy(() =>
 const ReferencePage = lazy(() =>
   import("@/pages/ReferencePage").then((module) => ({
     default: module.ReferencePage,
+  }))
+);
+const NotFoundPage = lazy(() =>
+  import("@/pages/NotFoundPage").then((module) => ({
+    default: module.NotFoundPage,
   }))
 );
 
@@ -225,7 +231,9 @@ function App() {
                   <Route path="/referenciak" element={<MainPage />} />
                   <Route path="/gyik" element={<MainPage />} />
                   <Route path="/kapcsolat" element={<MainPage />} />
+                  <Route path="/qr/card" element={<Navigate to="/" replace />} />
                   <Route path="/reference/:id" element={<ReferencePage />} />
+                  <Route path="*" element={<NotFoundPage />} />
                 </Routes>
               </Suspense>
             </div>

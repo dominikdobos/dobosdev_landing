@@ -419,5 +419,10 @@
     "text": "We use cookies to analyze site traffic and improve your user experience. By accepting, you consent to our use of cookies.",
     "necessary": "Necessary Only",
     "acceptAll": "Accept All Cookies"
+  },
+  "notfound": {
+    "title": "Page Not Found",
+    "description": "Sorry, the page you are looking for does not exist or has been moved.",
+    "button": "Back to Home"
   }
 }

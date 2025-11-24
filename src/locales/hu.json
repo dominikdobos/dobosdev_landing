@@ -372,26 +372,26 @@
         "title": "9. Sütik (Cookies)",
         "content": "Weboldalunk különböző típusú sütiket használ a megfelelő működés és a felhasználói élmény javítása érdekében.",
         "types": {
-            "necessary": {
-                "title": "a) Szükséges sütik",
-                "description": "Ezek a sütik a weboldal működéséhez feltétlenül szükségesek (pl. munkamenet-azonosító, cookie-beállítások mentése). Ezen sütik használatának jogalapja az adatkezelő jogos érdeke, a weboldal megfelelő működésének biztosítása."
-            },
-            "statistics": {
-                "title": "b) Statisztikai sütik (Google Analytics)",
-                "description": "Statisztikai sütiket használunk arra, hogy anonimizált formában elemezzük, hogyan használják a látogatók a weboldalt (mely oldalakat nézik, mennyi ideig tartózkodnak az oldalon stb.). Szolgáltató: Google Ireland Ltd. A Google az IP-címet anonimizált formában rögzíti. Ezen sütik használatának jogalapja az Ön hozzájárulása."
-            },
-            "marketing": {
-                "title": "c) Marketing sütik (pl. Google Ads)",
-                "description": "Marketing sütik segítségével mérhetjük a hirdetéseink hatékonyságát, illetve személyre szabottabb hirdetéseket jeleníthetünk meg a felhasználók számára. Ezen sütik használatának jogalapja az Ön hozzájárulása."
-            }
+          "necessary": {
+            "title": "a) Szükséges sütik",
+            "description": "Ezek a sütik a weboldal működéséhez feltétlenül szükségesek (pl. munkamenet-azonosító, cookie-beállítások mentése). Ezen sütik használatának jogalapja az adatkezelő jogos érdeke, a weboldal megfelelő működésének biztosítása."
+          },
+          "statistics": {
+            "title": "b) Statisztikai sütik (Google Analytics)",
+            "description": "Statisztikai sütiket használunk arra, hogy anonimizált formában elemezzük, hogyan használják a látogatók a weboldalt (mely oldalakat nézik, mennyi ideig tartózkodnak az oldalon stb.). Szolgáltató: Google Ireland Ltd. A Google az IP-címet anonimizált formában rögzíti. Ezen sütik használatának jogalapja az Ön hozzájárulása."
+          },
+          "marketing": {
+            "title": "c) Marketing sütik (pl. Google Ads)",
+            "description": "Marketing sütik segítségével mérhetjük a hirdetéseink hatékonyságát, illetve személyre szabottabb hirdetéseket jeleníthetünk meg a felhasználók számára. Ezen sütik használatának jogalapja az Ön hozzájárulása."
+          }
         },
         "consent": {
-            "title": "3. Hozzájárulás és visszavonás",
-            "description": "A statisztikai és marketing sütik csak akkor töltődnek be, ha Ön ezeket a cookie bannerben elfogadja („Minden sütit elfogadok”). Hozzájárulását bármikor visszavonhatja böngészője sütibeállításain keresztül, illetve a weboldalon elérhető „Cookie beállítások” linken keresztül."
+          "title": "3. Hozzájárulás és visszavonás",
+          "description": "A statisztikai és marketing sütik csak akkor töltődnek be, ha Ön ezeket a cookie bannerben elfogadja („Minden sütit elfogadok”). Hozzájárulását bármikor visszavonhatja böngészője sütibeállításain keresztül, illetve a weboldalon elérhető „Cookie beállítások” linken keresztül."
         },
         "retention": {
-            "title": "4. Sütik megőrzési ideje",
-            "description": "A sütik megőrzési ideje típustól függően néhány perctől legfeljebb 24 hónapig terjed."
+          "title": "4. Sütik megőrzési ideje",
+          "description": "A sütik megőrzési ideje típustól függően néhány perctől legfeljebb 24 hónapig terjed."
         },
         "googleInfo": "További információkat arról, hogyan kezeli a Google az adatokat, a Google adatvédelmi tájékoztatójában talál."
       },
@@ -418,5 +418,10 @@
     "text": "Weboldalunk sütiket használ a látogatottság elemzéséhez és a felhasználói élmény javításához. Az elfogadással hozzájárul a sütik használatához.",
     "necessary": "Szükséges sütik",
     "acceptAll": "Minden sütit elfogadok"
+  },
+  "notfound": {
+    "title": "Az oldal nem található",
+    "description": "Sajnáljuk, de a keresett oldal nem létezik vagy át lett helyezve.",
+    "button": "Vissza a főoldalra"
   }
 }
