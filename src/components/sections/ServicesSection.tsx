@@ -18,7 +18,7 @@ import {
   Sparkles,
   Clock,
 } from "lucide-react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 const serviceIcons = {
   website: Globe,
@@ -72,14 +72,14 @@ export function ServicesSection() {
                 delay={index * 0.1}
                 variant={animationVariants[variantIndex]}
               >
-                <motion.div
+                <m.div
                   whileHover={{ y: -8, scale: 1.02 }}
                   transition={{ duration: 0.3, ease: "easeOut" }}
                   className="h-full"
                 >
                   <Card className="h-full hover:shadow-2xl hover:shadow-primary/10 transition-all duration-300 border-2 hover:border-primary/50 group flex flex-col">
                     <CardHeader className="space-y-4">
-                      <motion.div
+                      <m.div
                         className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center group-hover:from-primary/30 group-hover:to-accent/30 transition-colors"
                         whileHover={{
                           rotate: [0, -10, 10, -10, 0],
@@ -88,7 +88,7 @@ export function ServicesSection() {
                         transition={{ duration: 0.5 }}
                       >
                         <Icon className="h-8 w-8 text-primary" />
-                      </motion.div>
+                      </m.div>
                       <div>
                         <CardTitle className="text-xl md:text-2xl mb-2 group-hover:text-primary transition-colors">
                           {t(`services.items.${service}.title`)}
@@ -105,7 +105,7 @@ export function ServicesSection() {
                             returnObjects: true,
                           }) as string[]
                         ).map((feature, i) => (
-                          <motion.li
+                          <m.li
                             key={i}
                             initial={{ opacity: 0, x: -10 }}
                             whileInView={{ opacity: 1, x: 0 }}
@@ -119,7 +119,7 @@ export function ServicesSection() {
                             <span className="text-muted-foreground">
                               {feature}
                             </span>
-                          </motion.li>
+                          </m.li>
                         ))}
                       </ul>
                     </CardContent>
@@ -138,7 +138,7 @@ export function ServicesSection() {
                       </div>
                     </CardFooter>
                   </Card>
-                </motion.div>
+                </m.div>
               </AnimatedSection>
             );
           })}

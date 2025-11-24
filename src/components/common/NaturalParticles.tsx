@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { m, useReducedMotion } from 'framer-motion';
 
 interface Particle {
   id: number;
@@ -47,7 +47,7 @@ export function NaturalParticles() {
   return (
     <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden" style={{ height: '100vh' }}>
       {particles.map((particle) => (
-        <motion.div
+        <m.div
           key={particle.id}
           className="absolute rounded-full bg-primary dark:opacity-20"
           style={{

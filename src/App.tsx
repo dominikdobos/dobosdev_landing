@@ -7,8 +7,11 @@ import { InteractiveGridPattern } from "@/components/common/InteractiveGridPatte
 import { cn } from "@/lib/utils";
 import { useState, useEffect, Suspense, lazy } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
-import { LazyMotion, domAnimation } from "framer-motion";
+import { LazyMotion } from "framer-motion";
 import "@/lib/i18n";
+
+// Load Framer Motion features asynchronously to reduce initial bundle size
+const loadFeatures = () => import("./features").then((res) => res.default);
 
 const ServicesSection = lazy(() => import("@/components/sections/ServicesSection").then(module => ({ default: module.ServicesSection })));
 const ProcessSection = lazy(() => import("@/components/sections/ProcessSection").then(module => ({ default: module.ProcessSection })));
@@ -139,7 +142,7 @@ function App() {
   return (
     <ThemeProvider>
       <LanguageProvider>
-        <LazyMotion features={domAnimation}>
+        <LazyMotion features={loadFeatures} strict>
           <Router>
             <div className="min-h-screen bg-background text-foreground">
               <Suspense fallback={<div className="min-h-screen" />}>

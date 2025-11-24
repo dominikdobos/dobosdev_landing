@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 const packages = ["landing", "business", "redesign", "maintenance"];
 
@@ -53,7 +53,7 @@ export function PricingSection() {
                 delay={index * 0.1}
                 variant={animationVariants[variantIndex]}
               >
-                <motion.div
+                <m.div
                   whileHover={{ scale: 1.05, y: -5 }}
                   transition={{ duration: 0.3, ease: "easeOut" }}
                   className="h-full"
@@ -66,14 +66,14 @@ export function PricingSection() {
                     }`}
                   >
                     {isPopular && (
-                      <motion.div
+                      <m.div
                         className="bg-primary text-primary-foreground text-center py-1 text-sm font-semibold rounded-t-lg"
                         initial={{ opacity: 0, y: -20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.5 }}
                       >
                         Népszerű
-                      </motion.div>
+                      </m.div>
                     )}
                     <CardHeader className="pb-4">
                       <CardTitle className="text-2xl">
@@ -93,7 +93,7 @@ export function PricingSection() {
                             returnObjects: true,
                           }) as string[]
                         ).map((feature, i) => (
-                          <motion.li
+                          <m.li
                             key={i}
                             className="flex items-start gap-2 text-sm"
                             initial={{ opacity: 0, x: -10 }}
@@ -103,7 +103,7 @@ export function PricingSection() {
                           >
                             <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                             <span className="leading-relaxed">{feature}</span>
-                          </motion.li>
+                          </m.li>
                         ))}
                       </ul>
                     </CardContent>
@@ -117,7 +117,7 @@ export function PricingSection() {
                       </Button>
                     </CardFooter>
                   </Card>
-                </motion.div>
+                </m.div>
               </AnimatedSection>
             );
           })}

@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from 'framer-motion';
+import { m, useReducedMotion } from 'framer-motion';
 import { useState } from 'react';
 
 interface Particle {
@@ -29,7 +29,7 @@ export function ParticleField({ particleCount = 30 }: ParticleFieldProps) {
     <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
       <svg className="w-full h-full">
         {particles.map((particle) => (
-          <motion.circle
+          <m.circle
             key={particle.id}
             cx={`${particle.x}%`}
             cy={`${particle.y}%`}

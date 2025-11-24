@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { Play, SkipForward, Maximize2, ArrowLeft, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "react-i18next";
@@ -130,7 +130,7 @@ export function ReferencePage() {
       <main className="flex-1 container mx-auto px-4 pt-24 pb-12">
         <div className="max-w-6xl mx-auto">
           {/* Title & Info */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="mb-8 md:mb-12 max-w-3xl"
@@ -144,7 +144,7 @@ export function ReferencePage() {
             <p className="text-muted-foreground text-lg md:text-xl leading-relaxed">
               {reference.description}
             </p>
-          </motion.div>
+          </m.div>
 
           {/* Layout Transition Container */}
           <div className="relative w-full">
@@ -158,7 +158,7 @@ export function ReferencePage() {
               )}
             >
               {/* Hero Item (Video) */}
-              <motion.div
+              <m.div
                 layout
                 className={cn(
                   "relative rounded-xl overflow-hidden bg-muted group/video",
@@ -225,7 +225,7 @@ export function ReferencePage() {
                     </p>
                   </div>
                 )}
-              </motion.div>
+              </m.div>
 
               {/* Gallery Images (Only visible in gallery view) */}
               <AnimatePresence mode="popLayout">
@@ -242,7 +242,7 @@ export function ReferencePage() {
                     const spanClass = isBig ? "md:col-span-2 md:row-span-2" : "";
 
                     return (
-                      <motion.div
+                      <m.div
                         key={img}
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
@@ -262,7 +262,7 @@ export function ReferencePage() {
                         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
                           <Maximize2 className="text-white w-8 h-8 drop-shadow-lg" />
                         </div>
-                      </motion.div>
+                      </m.div>
                     );
                   })}
               </AnimatePresence>

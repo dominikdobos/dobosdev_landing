@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from 'framer-motion';
+import { m, useReducedMotion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 interface Shape {
@@ -44,7 +44,7 @@ export function FloatingShapes({ count = 5, color = 'primary', opacity = 0.1 }: 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {shapes.map((shape) => (
-        <motion.div
+        <m.div
           key={shape.id}
           className={`absolute bg-${color}/[${opacity}] blur-2xl`}
           style={{

@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { HexagonBackground } from "@/components/common/HexagonBackground";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -90,7 +90,7 @@ export function AboutReferencesSection() {
                   delay={index * 0.1}
                   variant={animationVariants[variantIndex]}
                 >
-                  <motion.div
+                  <m.div
                     layoutId={`card-${reference.id}`}
                     whileHover={{ scale: 1.02, y: -5 }}
                     whileTap={{ scale: 0.98 }}
@@ -130,7 +130,7 @@ export function AboutReferencesSection() {
                         </CardDescription>
                       </CardHeader>
                     </Card>
-                  </motion.div>
+                  </m.div>
                 </AnimatedSection>
               );
             })}
@@ -140,7 +140,7 @@ export function AboutReferencesSection() {
               delay={references.length * 0.1}
               variant="fadeRight"
             >
-              <motion.div
+              <m.div
                 whileHover={{ scale: 1.02, y: -5 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ duration: 0.2 }}
@@ -159,7 +159,7 @@ export function AboutReferencesSection() {
                     <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Card>
-              </motion.div>
+              </m.div>
             </AnimatedSection>
           </div>
         </div>

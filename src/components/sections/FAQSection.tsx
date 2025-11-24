@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { AnimatedSection } from '@/components/common/AnimatedSection';
 import { ParticlesBackground } from '@/components/common/ParticlesBackground';
 import { ChevronDown } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { m, AnimatePresence } from 'framer-motion';
 
 export function FAQSection() {
   const { t } = useTranslation();
@@ -51,16 +51,16 @@ export function FAQSection() {
                     className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-accent/50 transition-colors"
                   >
                     <span className="font-semibold pr-4">{faq.question}</span>
-                    <motion.div
+                    <m.div
                       animate={{ rotate: openIndex === index ? 180 : 0 }}
                       transition={{ duration: 0.2 }}
                     >
                       <ChevronDown className="h-5 w-5 text-muted-foreground flex-shrink-0" />
-                    </motion.div>
+                    </m.div>
                   </button>
                   <AnimatePresence>
                     {openIndex === index && (
-                      <motion.div
+                      <m.div
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: 'auto', opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
@@ -69,7 +69,7 @@ export function FAQSection() {
                         <div className="px-6 pb-4 text-muted-foreground">
                           {faq.answer}
                         </div>
-                      </motion.div>
+                      </m.div>
                     )}
                   </AnimatePresence>
                 </div>

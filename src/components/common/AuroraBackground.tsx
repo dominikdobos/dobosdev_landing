@@ -1,10 +1,10 @@
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 export function AuroraBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {/* Aurora orb 1 */}
-      <motion.div
+      <m.div
         className="absolute -top-1/4 -left-1/4 w-[600px] h-[600px] rounded-full opacity-[0.35] dark:opacity-[0.25]"
         style={{
           background: "radial-gradient(circle, rgba(251, 146, 60, 0.5) 0%, transparent 70%)",
@@ -23,7 +23,7 @@ export function AuroraBackground() {
       />
 
       {/* Aurora orb 2 */}
-      <motion.div
+      <m.div
         className="absolute top-1/3 -right-1/4 w-[500px] h-[500px] rounded-full opacity-[0.32] dark:opacity-[0.22]"
         style={{
           background: "radial-gradient(circle, rgba(249, 115, 22, 0.4) 0%, transparent 70%)",
@@ -42,7 +42,7 @@ export function AuroraBackground() {
       />
 
       {/* Aurora orb 3 */}
-      <motion.div
+      <m.div
         className="absolute bottom-1/4 left-1/3 w-[550px] h-[550px] rounded-full opacity-[0.3] dark:opacity-[0.2]"
         style={{
           background: "radial-gradient(circle, rgba(253, 186, 116, 0.4) 0%, transparent 70%)",

@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from 'framer-motion';
+import { m, useReducedMotion } from 'framer-motion';
 
 interface AnimatedLinesProps {
   lineCount?: number;
@@ -27,7 +27,7 @@ export function AnimatedLines({ lineCount = 5, orientation = 'diagonal' }: Anima
         {lines.map((_, i) => {
           const offset = (100 / lineCount) * i;
           return (
-            <motion.line
+            <m.line
               key={i}
               x1={orientation === 'vertical' ? `${offset}%` : '0%'}
               y1={orientation === 'horizontal' ? `${offset}%` : '0%'}

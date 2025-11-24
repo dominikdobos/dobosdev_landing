@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { motion, useInView, useReducedMotion, Variants } from 'framer-motion';
+import { m, useInView, useReducedMotion, Variants } from 'framer-motion';
 
 interface AnimatedSectionProps {
   children: React.ReactNode;
@@ -68,7 +68,7 @@ export function AnimatedSection({
   const selectedVariant = animationVariants[variant];
 
   return (
-    <motion.div
+    <m.div
       ref={ref}
       initial="hidden"
       animate={hasAnimated ? "visible" : "hidden"}
@@ -81,7 +81,7 @@ export function AnimatedSection({
       className={className}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }
 
