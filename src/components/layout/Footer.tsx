@@ -35,8 +35,8 @@ export function Footer() {
                     : "/assets/logo/logo_full_dark.png"
                 }
                 alt="DobosDEV Logo"
-                width="100"
-                height="32"
+                width="240"
+                height="35"
                 className="h-6 md:h-8 w-auto"
               />
             </div>

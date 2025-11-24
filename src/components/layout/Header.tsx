@@ -150,9 +150,12 @@ export function Header() {
                   : "/assets/logo/logo_full_dark.png"
               }
               alt="DobosDEV Logo"
-              width="100"
-              height="28"
-              className="h-5 md:h-7 w-auto"
+              width="240"
+              height="35"
+              loading="eager"
+              // @ts-ignore - fetchpriority is a valid attribute but React types might be outdated
+              fetchpriority="high"
+              className="h-6 md:h-8 w-auto"
             />
           </div>
 

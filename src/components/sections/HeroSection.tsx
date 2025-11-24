@@ -38,11 +38,11 @@ export function HeroSection() {
                     : "/assets/logo/logo_noicon_dark.png"
                 }
                 alt="DobosDEV Logo"
-                width="100"
-                height="32"
+                width="291"
+                height="35"
                 // @ts-ignore - fetchpriority is a valid attribute but React types might be outdated
                 fetchpriority="high"
-                className="h-5 md:h-7 lg:h-8 w-auto"
+                className="h-8 md:h-10 lg:h-12 w-auto"
               />
             </div>
 

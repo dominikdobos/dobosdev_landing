@@ -89,5 +89,6 @@ body {
 .content-visibility-auto {
   content-visibility: auto;
   contain-intrinsic-size: 1000px; /* Approximation of section height */
+  min-height: 500px; /* Prevent layout collapse before rendering */
 }
 
