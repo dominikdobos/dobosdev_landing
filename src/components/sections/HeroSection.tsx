@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
@@ -21,21 +21,21 @@ export function HeroSection() {
       <div className="container mx-auto">
         <div className="max-w-5xl mx-auto">
           {/* Refined DobosDEV Branding */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="mb-12 text-center"
           >
             {/* Subtle full name */}
-            <motion.p
+            <m.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
               className="text-sm md:text-sm text-muted-foreground/80 mb-3 tracking-wide uppercase"
             >
               {t("hero.soleProprietor")}
-            </motion.p>
+            </m.p>
 
           {/* Main DobosDEV Logo */}
           <h1 className="text-3xl md:text-3xl lg:text-5xl font-black mb-2 tracking-tight">
@@ -45,36 +45,36 @@ export function HeroSection() {
           </h1>
 
             {/* Subtle wordplay hint */}
-            <motion.p
+            <m.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
               className="text-sm md:text-sm text-muted-foreground/70 tracking-widest"
             >
               D · E · V · E · L · O · P · E · R
-            </motion.p>
-          </motion.div>
+            </m.p>
+          </m.div>
 
           {/* Main Heading */}
-          <motion.h2
+          <m.h2
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-center"
           >
             {t("hero.title")}
-          </motion.h2>
+          </m.h2>
 
-          <motion.p
+          <m.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
             className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto text-center"
           >
             {t("hero.subtitle")}
-          </motion.p>
+          </m.p>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
@@ -92,9 +92,9 @@ export function HeroSection() {
               <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
               <span className="text-sm">{t("hero.whatsDifferent")}</span>
             </div>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
@@ -104,7 +104,7 @@ export function HeroSection() {
               {t("hero.cta")}
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Button>
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </section>

@@ -7,6 +7,7 @@ import { InteractiveGridPattern } from "@/components/common/InteractiveGridPatte
 import { cn } from "@/lib/utils";
 import { useState, useEffect, Suspense, lazy } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { LazyMotion, domAnimation } from "framer-motion";
 import "@/lib/i18n";
 
 const ServicesSection = lazy(() => import("@/components/sections/ServicesSection").then(module => ({ default: module.ServicesSection })));
@@ -24,6 +25,48 @@ function MainPage() {
   const location = useLocation();
 
   // ... hash scrolling and path redirects ...
+  useEffect(() => {
+    if (location.hash) {
+      const sectionId = location.hash.replace("#", "");
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    }
+  }, [location.hash]);
+
+  useEffect(() => {
+    const path = location.pathname.substring(1); // remove leading slash
+    if (['services', 'process', 'pricing', 'faq', 'contact', 'references', 'szolgaltatasok', 'folyamat', 'arak', 'referenciak', 'gyik', 'kapcsolat'].includes(path)) {
+      // Map hungarian paths to english IDs
+      const pathToIdMap: Record<string, string> = {
+        'szolgaltatasok': 'services',
+        'folyamat': 'process',
+        'arak': 'pricing',
+        'referenciak': 'references',
+        'gyik': 'faq',
+        'kapcsolat': 'contact'
+      };
+      
+      const elementId = pathToIdMap[path] || path;
+      
+      // Try immediately first
+      const element = document.getElementById(elementId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      } else {
+        // If not found (due to lazy loading), try again after a short delay
+        setTimeout(() => {
+          const el = document.getElementById(elementId);
+          if (el) {
+            el.scrollIntoView({ behavior: "smooth" });
+          }
+        }, 300);
+      }
+    }
+  }, [location.pathname]);
 
   useEffect(() => {
     const updateGridSquares = () => {
@@ -96,28 +139,30 @@ function App() {
   return (
     <ThemeProvider>
       <LanguageProvider>
-        <Router>
-          <div className="min-h-screen bg-background text-foreground">
-            <Suspense fallback={<div className="min-h-screen" />}>
-              <Routes>
-                <Route path="/" element={<MainPage />} />
-                <Route path="/services" element={<MainPage />} />
-                <Route path="/process" element={<MainPage />} />
-                <Route path="/pricing" element={<MainPage />} />
-                <Route path="/faq" element={<MainPage />} />
-                <Route path="/contact" element={<MainPage />} />
-                <Route path="/references" element={<MainPage />} />
-                <Route path="/szolgaltatasok" element={<MainPage />} />
-                <Route path="/folyamat" element={<MainPage />} />
-                <Route path="/arak" element={<MainPage />} />
-                <Route path="/referenciak" element={<MainPage />} />
-                <Route path="/gyik" element={<MainPage />} />
-                <Route path="/kapcsolat" element={<MainPage />} />
-                <Route path="/reference/:id" element={<ReferencePage />} />
-              </Routes>
-            </Suspense>
-          </div>
-        </Router>
+        <LazyMotion features={domAnimation}>
+          <Router>
+            <div className="min-h-screen bg-background text-foreground">
+              <Suspense fallback={<div className="min-h-screen" />}>
+                <Routes>
+                  <Route path="/" element={<MainPage />} />
+                  <Route path="/services" element={<MainPage />} />
+                  <Route path="/process" element={<MainPage />} />
+                  <Route path="/pricing" element={<MainPage />} />
+                  <Route path="/faq" element={<MainPage />} />
+                  <Route path="/contact" element={<MainPage />} />
+                  <Route path="/references" element={<MainPage />} />
+                  <Route path="/szolgaltatasok" element={<MainPage />} />
+                  <Route path="/folyamat" element={<MainPage />} />
+                  <Route path="/arak" element={<MainPage />} />
+                  <Route path="/referenciak" element={<MainPage />} />
+                  <Route path="/gyik" element={<MainPage />} />
+                  <Route path="/kapcsolat" element={<MainPage />} />
+                  <Route path="/reference/:id" element={<ReferencePage />} />
+                </Routes>
+              </Suspense>
+            </div>
+          </Router>
+        </LazyMotion>
       </LanguageProvider>
     </ThemeProvider>
   );

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/common/ThemeToggle";
 import { LanguageToggle } from "@/components/common/LanguageToggle";
@@ -43,13 +43,30 @@ export function Header() {
       }
     }
 
-    // Navigate to the URL (App.tsx will handle scrolling)
+    // Handle navigation
     if (sectionId === 'home') {
-      navigate('/');
-      // Force scroll to top if already on home page
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (location.pathname === '/') {
+        // If already on home, just scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        navigate('/');
+        // Scroll will be handled by App.tsx useEffect
+      }
     } else {
-      navigate(`/${path}`);
+      // Check if we are already on the page but just need to scroll
+      // Note: For now, we always navigate to ensure URL updates, but we could optimize this
+      // if we are already on the right route pattern.
+      
+      // If we are already on the main page (any section), try to scroll directly first
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        // Update URL without full navigation if possible, or just let it be
+        // navigate(`/${path}`, { replace: true }); // Optional: might trigger router
+        window.history.pushState(null, '', `/${path}`);
+      } else {
+        navigate(`/${path}`);
+      }
     }
   };
 
@@ -64,7 +81,7 @@ export function Header() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Simple Logo - No Tooltip */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             className="text-2xl md:text-3xl font-bold cursor-pointer"
@@ -73,12 +90,12 @@ export function Header() {
             <span className="text-foreground">Dobos</span>
             <span className="text-gray-500">D</span>
             <span className="text-primary">EV</span>
-          </motion.div>
+          </m.div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-6">
             {navItems.map((item, index) => (
-              <motion.button
+              <m.button
                 key={item}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -87,7 +104,7 @@ export function Header() {
                 className="text-sm font-medium hover:text-primary transition-colors"
               >
                 {t(`nav.${item}`)}
-              </motion.button>
+              </m.button>
             ))}
           </nav>
 
@@ -116,7 +133,7 @@ export function Header() {
       {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, height: 0 }}
             animate={{
               opacity: 1,
@@ -148,7 +165,7 @@ export function Header() {
           >
             <nav className="container mx-auto px-4 py-4 flex flex-col gap-2">
               {navItems.map((item, index) => (
-                <motion.button
+                <m.button
                   key={item}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{
@@ -163,10 +180,10 @@ export function Header() {
                   className="text-left py-2 px-4 rounded-md hover:bg-accent transition-colors"
                 >
                   {t(`nav.${item}`)}
-                </motion.button>
+                </m.button>
               ))}
             </nav>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </header>
