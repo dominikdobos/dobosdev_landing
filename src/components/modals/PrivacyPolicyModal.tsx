@@ -163,14 +163,47 @@ export function PrivacyPolicyModal({
               </CardContent>
             </Card>
 
-            {/* Cookies - Future */}
+            {/* Cookies - Detailed */}
             <Card>
               <CardContent className="pt-6">
                 <h3 className="text-xl font-semibold mb-3">
                   {t("legal.privacy.cookies.title")}
                 </h3>
-                <div className="text-muted-foreground space-y-2">
+                <div className="text-muted-foreground space-y-4">
                   <p>{t("legal.privacy.cookies.content")}</p>
+                  
+                  {/* Cookie Types */}
+                  <div className="space-y-4 pl-2">
+                    <div>
+                        <p className="font-semibold text-foreground">{t("legal.privacy.cookies.types.necessary.title")}</p>
+                        <p className="text-sm">{t("legal.privacy.cookies.types.necessary.description")}</p>
+                    </div>
+                    <div>
+                        <p className="font-semibold text-foreground">{t("legal.privacy.cookies.types.statistics.title")}</p>
+                        <p className="text-sm">{t("legal.privacy.cookies.types.statistics.description")}</p>
+                    </div>
+                    <div>
+                        <p className="font-semibold text-foreground">{t("legal.privacy.cookies.types.marketing.title")}</p>
+                        <p className="text-sm">{t("legal.privacy.cookies.types.marketing.description")}</p>
+                    </div>
+                  </div>
+
+                  {/* Consent */}
+                  <div className="mt-2">
+                    <h4 className="font-semibold text-foreground mb-1">{t("legal.privacy.cookies.consent.title")}</h4>
+                    <p>{t("legal.privacy.cookies.consent.description")}</p>
+                  </div>
+
+                  {/* Retention */}
+                  <div className="mt-2">
+                    <h4 className="font-semibold text-foreground mb-1">{t("legal.privacy.cookies.retention.title")}</h4>
+                    <p>{t("legal.privacy.cookies.retention.description")}</p>
+                  </div>
+
+                  {/* Google Info */}
+                  <p className="italic text-sm mt-2">
+                    {t("legal.privacy.cookies.googleInfo")}
+                  </p>
                 </div>
               </CardContent>
             </Card>
@@ -236,4 +269,3 @@ export function PrivacyPolicyModal({
     </Dialog>
   );
 }
-

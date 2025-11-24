@@ -33,7 +33,7 @@
           "Google Analytics setup",
           "2 rounds of revisions"
         ],
-        "timeframe": "2-3 weeks",
+        "timeframe": "3-4 weeks",
         "price": "From 180,000 HUF"
       },
       "redesign": {
@@ -72,7 +72,7 @@
           "Basic SEO settings",
           "1-2 rounds of revisions"
         ],
-        "timeframe": "1 week",
+        "timeframe": "1-2 weeks",
         "price": "From 110,000 HUF"
       },
       "seo": {
@@ -194,7 +194,7 @@
     "items": [
       {
         "question": "How long does it take to complete my website?",
-        "answer": "A landing page takes about 1 week, a 3-5 page business website takes 2-3 weeks. This depends on the project's complexity and how quickly we can align on the details."
+        "answer": "A landing page takes about 1-2 week, a 3-5 page business website takes 3-4 weeks. This depends on the project's complexity and how quickly we can align on the details. For custom projects, we will agree on a deadline together."
       },
       {
         "question": "How does payment work?",
@@ -371,7 +371,30 @@
       },
       "cookies": {
         "title": "9. Cookies",
-        "content": "The website currently does not use cookies. If we introduce analytical tools (e.g., Google Analytics) in the future, we will provide separate information and options for cookie management."
+        "content": "Our website uses various types of cookies to ensure proper functioning and improve user experience.",
+        "types": {
+          "necessary": {
+            "title": "a) Necessary Cookies",
+            "description": "These cookies are strictly necessary for the website to function (e.g., session ID, saving cookie settings). The legal basis for using these cookies is the legitimate interest of the Data Controller in ensuring the proper functioning of the website."
+          },
+          "statistics": {
+            "title": "b) Statistical Cookies (Google Analytics)",
+            "description": "We use statistical cookies to analyze in an anonymized form how visitors use the website (which pages they visit, how long they stay on the page, etc.). Provider: Google Ireland Ltd. Google records the IP address in an anonymized form. The legal basis for using these cookies is your consent."
+          },
+          "marketing": {
+            "title": "c) Marketing Cookies (e.g., Google Ads)",
+            "description": "Marketing cookies help us measure the effectiveness of our advertisements and display more personalized ads to users. The legal basis for using these cookies is your consent."
+          }
+        },
+        "consent": {
+          "title": "3. Consent and Withdrawal",
+          "description": "Statistical and marketing cookies are only loaded if you accept them in the cookie banner (\"Accept All Cookies\"). You can withdraw your consent at any time via your browser's cookie settings or via the \"Cookie Settings\" link available on the website."
+        },
+        "retention": {
+          "title": "4. Cookie Retention Period",
+          "description": "The retention period of cookies ranges from a few minutes to a maximum of 24 months depending on the type."
+        },
+        "googleInfo": "For more information on how Google handles data, please see Google's privacy policy."
       },
       "changes": {
         "title": "10. Changes to the Privacy Policy",
@@ -390,5 +413,11 @@
     "quickLinks": "Quick Links",
     "legalInfo": "Legal Information",
     "businessName": "Dobos Dominik Sole Proprietor"
+  },
+  "cookie": {
+    "title": "Cookie Settings",
+    "text": "We use cookies to analyze site traffic and improve your user experience. By accepting, you consent to our use of cookies.",
+    "necessary": "Necessary Only",
+    "acceptAll": "Accept All Cookies"
   }
 }

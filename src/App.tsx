@@ -4,6 +4,8 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { InteractiveGridPattern } from "@/components/common/InteractiveGridPattern";
+import { CookieConsent } from "@/components/common/CookieConsent";
+import { PrivacyPolicyModal } from "@/components/modals/PrivacyPolicyModal";
 import { cn } from "@/lib/utils";
 import { useState, useEffect, Suspense, lazy } from "react";
 import {
@@ -58,6 +60,7 @@ function MainPage() {
   // Responsive grid square counts based on viewport width
   const [gridSquares, setGridSquares] = useState<[number, number]>([16, 16]);
   const [showGrid, setShowGrid] = useState(true);
+  const [privacyOpen, setPrivacyOpen] = useState(false);
   const location = useLocation();
 
   // ... hash scrolling and path redirects ...
@@ -193,7 +196,9 @@ function MainPage() {
           </Suspense>
         </div>
       </main>
-      <Footer />
+      <Footer onOpenPrivacy={() => setPrivacyOpen(true)} />
+      <CookieConsent onOpenPrivacy={() => setPrivacyOpen(true)} />
+      <PrivacyPolicyModal open={privacyOpen} onOpenChange={setPrivacyOpen} />
     </>
   );
 }

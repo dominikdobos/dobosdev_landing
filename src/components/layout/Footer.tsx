@@ -2,17 +2,19 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { ImpresszumModal } from "@/components/modals/ImpresszumModal";
-import { PrivacyPolicyModal } from "@/components/modals/PrivacyPolicyModal";
 import { useTheme } from "@/contexts/ThemeContext";
 
 const navItems = ["home", "services", "process", "pricing", "faq", "contact"];
 
-export function Footer() {
+interface FooterProps {
+  onOpenPrivacy?: () => void;
+}
+
+export function Footer({ onOpenPrivacy }: FooterProps) {
   const { t } = useTranslation();
   const { theme } = useTheme();
   const currentYear = new Date().getFullYear();
   const [impresszumOpen, setImpresszumOpen] = useState(false);
-  const [privacyOpen, setPrivacyOpen] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -105,7 +107,7 @@ export function Footer() {
                   {t("legal.impresszum.title")}
                 </button>
                 <button
-                  onClick={() => setPrivacyOpen(true)}
+                  onClick={onOpenPrivacy}
                   className="text-sm text-muted-foreground hover:text-primary transition-colors text-left"
                 >
                   {t("legal.privacy.title")}
@@ -124,7 +126,6 @@ export function Footer() {
 
       {/* Modals */}
       <ImpresszumModal open={impresszumOpen} onOpenChange={setImpresszumOpen} />
-      <PrivacyPolicyModal open={privacyOpen} onOpenChange={setPrivacyOpen} />
     </footer>
   );
 }

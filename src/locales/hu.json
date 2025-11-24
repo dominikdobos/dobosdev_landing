@@ -33,7 +33,7 @@
           "Google Analytics beállítás",
           "2 kör módosítás"
         ],
-        "timeframe": "2-3 hét",
+        "timeframe": "3-4 hét",
         "price": "180 000 Ft-tól"
       },
       "redesign": {
@@ -72,7 +72,7 @@
           "Alap SEO beállítások",
           "1-2 kör módosítás"
         ],
-        "timeframe": "1 hét",
+        "timeframe": "1-2 hét",
         "price": "110 000 Ft-tól"
       },
       "seo": {
@@ -193,7 +193,7 @@
     "items": [
       {
         "question": "Mennyi idő alatt készül el a weboldalam?",
-        "answer": "Egy landing oldal kb. 1 hét, egy 3-5 oldalas céges weboldal 2-3 hét alatt elkészül. Ez függ a projekt összetettségétől és attól, mennyire gyorsan tudjuk egyeztetni a részleteket."
+        "answer": "Egy landing oldal kb. 1-2 hét, egy 3-5 oldalas céges weboldal 3-4 hét alatt elkészül. Ez függ a projekt összetettségétől és attól, mennyire gyorsan tudjuk egyeztetni a részleteket. Egyedi projektek esetén a határidőt közösen állapítjuk meg."
       },
       {
         "question": "Hogyan történik a fizetés?",
@@ -370,7 +370,30 @@
       },
       "cookies": {
         "title": "9. Sütik (Cookies)",
-        "content": "Jelenleg a weboldal nem használ sütiket. Amennyiben a jövőben analitikai eszközöket (pl. Google Analytics) vezetünk be, erről külön tájékoztatást adunk, és lehetőséget biztosítunk a sütik kezelésére."
+        "content": "Weboldalunk különböző típusú sütiket használ a megfelelő működés és a felhasználói élmény javítása érdekében.",
+        "types": {
+            "necessary": {
+                "title": "a) Szükséges sütik",
+                "description": "Ezek a sütik a weboldal működéséhez feltétlenül szükségesek (pl. munkamenet-azonosító, cookie-beállítások mentése). Ezen sütik használatának jogalapja az adatkezelő jogos érdeke, a weboldal megfelelő működésének biztosítása."
+            },
+            "statistics": {
+                "title": "b) Statisztikai sütik (Google Analytics)",
+                "description": "Statisztikai sütiket használunk arra, hogy anonimizált formában elemezzük, hogyan használják a látogatók a weboldalt (mely oldalakat nézik, mennyi ideig tartózkodnak az oldalon stb.). Szolgáltató: Google Ireland Ltd. A Google az IP-címet anonimizált formában rögzíti. Ezen sütik használatának jogalapja az Ön hozzájárulása."
+            },
+            "marketing": {
+                "title": "c) Marketing sütik (pl. Google Ads)",
+                "description": "Marketing sütik segítségével mérhetjük a hirdetéseink hatékonyságát, illetve személyre szabottabb hirdetéseket jeleníthetünk meg a felhasználók számára. Ezen sütik használatának jogalapja az Ön hozzájárulása."
+            }
+        },
+        "consent": {
+            "title": "3. Hozzájárulás és visszavonás",
+            "description": "A statisztikai és marketing sütik csak akkor töltődnek be, ha Ön ezeket a cookie bannerben elfogadja („Minden sütit elfogadok”). Hozzájárulását bármikor visszavonhatja böngészője sütibeállításain keresztül, illetve a weboldalon elérhető „Cookie beállítások” linken keresztül."
+        },
+        "retention": {
+            "title": "4. Sütik megőrzési ideje",
+            "description": "A sütik megőrzési ideje típustól függően néhány perctől legfeljebb 24 hónapig terjed."
+        },
+        "googleInfo": "További információkat arról, hogyan kezeli a Google az adatokat, a Google adatvédelmi tájékoztatójában talál."
       },
       "changes": {
         "title": "10. Az adatkezelési tájékoztató módosítása",
@@ -389,5 +412,11 @@
     "quickLinks": "Gyors linkek",
     "legalInfo": "Jogi információk",
     "businessName": "Dobos Dominik Egyéni Vállalkozó"
+  },
+  "cookie": {
+    "title": "Süti beállítások",
+    "text": "Weboldalunk sütiket használ a látogatottság elemzéséhez és a felhasználói élmény javításához. Az elfogadással hozzájárul a sütik használatához.",
+    "necessary": "Szükséges sütik",
+    "acceptAll": "Minden sütit elfogadok"
   }
 }
