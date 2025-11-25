@@ -11,7 +11,7 @@ import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { useTheme } from "@/contexts/ThemeContext";
 
 export function ContactSection() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { theme } = useTheme();
   const [formData, setFormData] = useState({
     name: "",
@@ -153,7 +153,9 @@ export function ContactSection() {
                         <Phone className="h-6 w-6 text-primary" />
                       </div>
                       <div>
-                        <div className="font-semibold">{t("contact.info.phone")}</div>
+                        <div className="font-semibold">
+                          {t("contact.info.phone")}
+                        </div>
                         <a
                           href="tel:+36202215874"
                           className="text-sm text-muted-foreground hover:text-primary"
@@ -167,7 +169,9 @@ export function ContactSection() {
                         <MapPin className="h-6 w-6 text-primary" />
                       </div>
                       <div>
-                        <div className="font-semibold">{t("contact.info.location")}</div>
+                        <div className="font-semibold">
+                          {t("contact.info.location")}
+                        </div>
                         <div className="text-sm text-muted-foreground">
                           Budapest, Hungary
                         </div>
@@ -247,7 +251,9 @@ export function ContactSection() {
                       disabled={isSubmitting}
                       required
                     >
-                      <option value="">{t("contact.form.servicePlaceholder")}</option>
+                      <option value="">
+                        {t("contact.form.servicePlaceholder")}
+                      </option>
                       <option value="website">
                         {t("contact.form.serviceOptions.website")}
                       </option>
@@ -286,7 +292,7 @@ export function ContactSection() {
                       required
                     />
                   </div>
-                  
+
                   {/* Privacy Consent Checkbox */}
                   <div className="flex items-start gap-3">
                     <input
@@ -325,10 +331,12 @@ export function ContactSection() {
                         onVerify={onHCaptchaChange}
                         reCaptchaCompat={false}
                         theme={theme === "dark" ? "dark" : "light"}
+                        languageOverride={i18n.language}
                       />
                     ) : (
                       <div className="w-[300px] h-[78px] bg-muted/20 rounded flex items-center justify-center text-xs text-muted-foreground">
-                        {t("contact.form.captchaPlaceholder") || "Captcha loading..."}
+                        {t("contact.form.captchaPlaceholder") ||
+                          "Captcha loading..."}
                       </div>
                     )}
                   </div>

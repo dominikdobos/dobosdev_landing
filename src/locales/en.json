@@ -296,9 +296,10 @@
       "sending": "Sending...",
       "success": "Thank you for your message! I'll be in touch soon.",
       "error": "An error occurred. Please email me directly.",
-      "privacyConsent": "I accept the data processing according to the Privacy Policy *",
+      "privacyConsent": "I accept the data processing according to the [Privacy Policy] *",
       "privacyConsentError": "You must accept the privacy policy to continue.",
-      "captchaError": "Please complete the captcha to verify you're not a robot."
+      "captchaError": "Please complete the captcha to verify you're not a robot.",
+      "captchaPlaceholder": "Security Check"
     },
     "responseNote": "I respond to all inquiries within 1 business day. If it's urgent, feel free to call me directly!"
   },

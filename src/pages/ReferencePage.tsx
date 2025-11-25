@@ -1,7 +1,15 @@
 import { useState, useEffect, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { m, AnimatePresence } from "framer-motion";
-import { Play, SkipForward, Maximize2, ArrowLeft, X, ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  Play,
+  SkipForward,
+  Maximize2,
+  ArrowLeft,
+  X,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "react-i18next";
 import { cn } from "@/lib/utils";
@@ -19,8 +27,10 @@ export function ReferencePage() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { t } = useTranslation();
-  
-  const references = t('references.items', { returnObjects: true }) as ReferenceItem[];
+
+  const references = t("references.items", {
+    returnObjects: true,
+  }) as ReferenceItem[];
   const reference = references.find((r) => r.id === id);
 
   const [view, setView] = useState<"video" | "gallery">("video");
@@ -42,7 +52,7 @@ export function ReferencePage() {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (selectedIndex === -1) return;
-      
+
       if (e.key === "ArrowLeft") {
         handlePrev();
       } else if (e.key === "ArrowRight") {
@@ -82,13 +92,17 @@ export function ReferencePage() {
   const handlePrev = (e?: React.MouseEvent) => {
     e?.stopPropagation();
     if (!reference?.galleryImages) return;
-    setSelectedIndex((prev) => (prev > 0 ? prev - 1 : reference.galleryImages!.length - 1));
+    setSelectedIndex((prev) =>
+      prev > 0 ? prev - 1 : reference.galleryImages!.length - 1
+    );
   };
 
   const handleNext = (e?: React.MouseEvent) => {
     e?.stopPropagation();
     if (!reference?.galleryImages) return;
-    setSelectedIndex((prev) => (prev < reference.galleryImages!.length - 1 ? prev + 1 : 0));
+    setSelectedIndex((prev) =>
+      prev < reference.galleryImages!.length - 1 ? prev + 1 : 0
+    );
   };
 
   if (!reference) {
@@ -103,27 +117,27 @@ export function ReferencePage() {
   return (
     <div className="min-h-screen bg-background flex flex-col">
       {/* Navigation Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b p-4">
-        <div className="container mx-auto flex items-center justify-between">
-          <Button 
-            variant="ghost" 
+      <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b py-3 px-2 md:p-4">
+        <div className="container mx-auto flex items-center justify-between px-0 md:px-8">
+          <Button
+            variant="ghost"
             onClick={() => navigate("/#references")}
-            className="flex items-center gap-2"
+            className="flex items-center gap-2 px-0 md:px-4"
           >
             <ArrowLeft className="w-4 h-4" />
-            {t('nav.back')}
+            {t("nav.back")}
           </Button>
           {view === "video" && (
-             <Button
-               variant="outline"
-               size="sm"
-               onClick={skipVideo}
-               className="bg-secondary text-secondary-foreground hover:bg-secondary/80"
-             >
-               <SkipForward className="w-4 h-4 mr-2" />
-               Skip Animation
-             </Button>
-           )}
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={skipVideo}
+              className="bg-secondary text-secondary-foreground hover:bg-secondary/80"
+            >
+              <SkipForward className="w-4 h-4 mr-2" />
+              Skip Animation
+            </Button>
+          )}
         </div>
       </header>
 
@@ -236,10 +250,12 @@ export function ReferencePage() {
                     // N % 6 == 0 -> Big Item (Left Aligned)
                     // N % 6 == 4 -> Big Item (Right Aligned)
                     // Others -> Small Items
-                    
+
                     const n = index + 1;
                     const isBig = n % 6 === 0 || n % 6 === 4;
-                    const spanClass = isBig ? "md:col-span-2 md:row-span-2" : "";
+                    const spanClass = isBig
+                      ? "md:col-span-2 md:row-span-2"
+                      : "";
 
                     return (
                       <m.div

@@ -295,9 +295,10 @@
       "sending": "Küldés...",
       "success": "Köszönöm az üzeneted! Hamarosan jelentkezem.",
       "error": "Hiba történt. Kérlek, írj közvetlenül az email címemre.",
-      "privacyConsent": "Elfogadom az Adatkezelési Tájékoztató szerinti adatkezelést *",
+      "privacyConsent": "Elfogadom az [Adatkezelési Tájékoztató] szerinti adatkezelést *",
       "privacyConsentError": "Az adatkezelési tájékoztató elfogadása kötelező.",
-      "captchaError": "Kérlek, töltsd ki a captcha mezőt a spam védelem miatt."
+      "captchaError": "Kérlek, töltsd ki a captcha mezőt a spam védelem miatt.",
+      "captchaPlaceholder": "Biztonsági ellenőrzés"
     },
     "responseNote": "Minden megkeresésre 1 munkanapon belül válaszolok. Ha sürgős lenne, hívj nyugodtan telefonon!"
   },
