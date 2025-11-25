@@ -75,6 +75,15 @@ export function ContactSection() {
       const data = await response.json();
 
       if (data.success) {
+        // Google Ads Conversion Tracking
+        // @ts-ignore - gtag is defined in index.html
+        if (typeof window !== "undefined" && window.gtag) {
+          // @ts-ignore
+          window.gtag("event", "conversion", {
+            send_to: "AW-17754702063/nzVcCOfNz8UbEO-BjZJC",
+          });
+        }
+
         setSubmitStatus("success");
         setFormData({
           name: "",
