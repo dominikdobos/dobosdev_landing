@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { useLocation } from "react-router-dom";
 import { AnimatedSection } from "@/components/common/AnimatedSection";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -14,6 +15,7 @@ import { useTheme } from "@/contexts/ThemeContext";
 export function ContactSection() {
   const { t, i18n } = useTranslation();
   const { theme } = useTheme();
+  const location = useLocation();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -28,6 +30,17 @@ export function ContactSection() {
     "idle" | "success" | "error"
   >("idle");
   const [privacyModalOpen, setPrivacyModalOpen] = useState(false);
+
+  // Reset URL when user navigates away from success page
+  useEffect(() => {
+    const currentPath = location.pathname;
+    const isSuccessPage = currentPath === "/sikeres-kapcsolat" || currentPath === "/successful-contact";
+    
+    // If we're on the success page but the form status is not success, reset the URL
+    if (isSuccessPage && submitStatus !== "success") {
+      window.history.replaceState({}, "", "/");
+    }
+  }, [location.pathname, submitStatus]);
 
   const handleInteraction = () => {
     if (!isCaptchaLoaded) {
@@ -76,12 +89,23 @@ export function ContactSection() {
       const data = await response.json();
 
       if (data.success) {
+        // Change URL to success page (virtual page view for conversion tracking)
+        const successUrl = i18n.language === "hu" ? "/sikeres-kapcsolat" : "/successful-contact";
+        window.history.pushState({}, "", successUrl);
+
         // Google Ads Conversion Tracking
         // @ts-ignore - gtag is defined in index.html
         if (typeof window !== "undefined" && window.gtag) {
           // @ts-ignore
           window.gtag("event", "conversion", {
             send_to: "AW-17754702063/nzVcCOfNz8UbEO-BjZJC",
+          });
+          
+          // Send virtual page view to Google Analytics
+          // @ts-ignore
+          window.gtag("event", "page_view", {
+            page_path: successUrl,
+            page_title: "Sikeres Kapcsolatfelvétel",
           });
         }
 
