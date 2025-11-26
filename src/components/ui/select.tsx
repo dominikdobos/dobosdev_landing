@@ -29,6 +29,9 @@ const Select = React.forwardRef<HTMLDivElement, SelectProps>(
     const [isOpen, setIsOpen] = React.useState(false)
     const containerRef = React.useRef<HTMLDivElement>(null)
 
+    // Handle refs
+    React.useImperativeHandle(ref, () => containerRef.current as HTMLDivElement)
+
     // Close dropdown when clicking outside
     React.useEffect(() => {
       const handleClickOutside = (event: MouseEvent) => {
@@ -47,7 +50,7 @@ const Select = React.forwardRef<HTMLDivElement, SelectProps>(
 
     // Find selected label
     const selectedChild = React.Children.toArray(children).find(
-      (child) => React.isValidElement(child) && child.props.value === value
+      (child) => React.isValidElement(child) && (child as React.ReactElement<SelectOptionProps>).props.value === value
     ) as React.ReactElement<SelectOptionProps> | undefined
 
     const selectedLabel = selectedChild ? selectedChild.props.children : placeholder
