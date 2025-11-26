@@ -2,6 +2,8 @@ import * as React from "react"
 import { X } from "lucide-react"
 import { cn } from "@/lib/utils"
 
+import { createPortal } from "react-dom"
+
 interface DialogProps {
   open?: boolean
   onOpenChange?: (open: boolean) => void
@@ -26,16 +28,19 @@ const Dialog = ({ open, onOpenChange, children }: DialogProps) => {
 
   if (!open) return null
 
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
+  return createPortal(
+    <div className="fixed inset-0 z-[100] flex items-center justify-center">
       {/* Backdrop */}
       <div
         className="fixed inset-0 bg-black/50 backdrop-blur-sm"
         onClick={() => onOpenChange?.(false)}
       />
       {/* Content wrapper */}
-      <div className="relative z-50 w-full">{children}</div>
-    </div>
+      <div className="relative z-[100] w-full flex justify-center pointer-events-none">
+        <div className="pointer-events-auto w-full">{children}</div>
+      </div>
+    </div>,
+    document.body
   )
 }
 
@@ -46,7 +51,7 @@ const DialogContent = React.forwardRef<HTMLDivElement, DialogContentProps>(
         ref={ref}
         className={cn(
           "relative mx-auto flex flex-col",
-          "w-full h-screen md:h-auto md:max-h-[90vh] md:max-w-4xl md:rounded-lg",
+          "w-full h-[100dvh] md:h-auto md:max-h-[85vh] md:max-w-4xl rounded-lg",
           "bg-background shadow-lg",
           "md:my-8",
           className
@@ -66,7 +71,7 @@ const DialogHeader = ({
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
     className={cn(
-      "flex items-center justify-between p-6 pb-4 border-b sticky top-0 bg-background z-10",
+      "flex items-center justify-between p-6 pb-4 border-b sticky top-0 bg-background z-10 rounded-t-lg",
       className
     )}
     {...props}
@@ -101,7 +106,7 @@ const DialogBody = ({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
-    className={cn("flex-1 overflow-y-auto p-6", className)}
+    className={cn("flex-1 overflow-y-auto p-6 no-scrollbar", className)}
     {...props}
   />
 )

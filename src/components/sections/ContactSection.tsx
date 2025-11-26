@@ -4,6 +4,7 @@ import { AnimatedSection } from "@/components/common/AnimatedSection";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectItem } from "@/components/ui/select";
 import { Card, CardContent } from "@/components/ui/card";
 import { Mail, Phone, MapPin, AlertCircle, CheckCircle2 } from "lucide-react";
 import { PrivacyPolicyModal } from "@/components/modals/PrivacyPolicyModal";
@@ -241,38 +242,37 @@ export function ContactSection() {
                     >
                       {t("contact.form.service")}
                     </label>
-                    <select
+                    <Select
                       id="service"
                       name="service"
                       value={formData.service}
-                      onChange={handleChange as any}
-                      onFocus={handleInteraction}
-                      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                      onChange={(value) => {
+                        setFormData({ ...formData, service: value });
+                        handleInteraction();
+                      }}
+                      placeholder={t("contact.form.servicePlaceholder")}
                       disabled={isSubmitting}
                       required
                     >
-                      <option value="">
-                        {t("contact.form.servicePlaceholder")}
-                      </option>
-                      <option value="website">
+                      <SelectItem value="website">
                         {t("contact.form.serviceOptions.website")}
-                      </option>
-                      <option value="redesign">
+                      </SelectItem>
+                      <SelectItem value="redesign">
                         {t("contact.form.serviceOptions.redesign")}
-                      </option>
-                      <option value="landing">
+                      </SelectItem>
+                      <SelectItem value="landing">
                         {t("contact.form.serviceOptions.landing")}
-                      </option>
-                      <option value="maintenance">
+                      </SelectItem>
+                      <SelectItem value="maintenance">
                         {t("contact.form.serviceOptions.maintenance")}
-                      </option>
-                      <option value="seo">
+                      </SelectItem>
+                      <SelectItem value="seo">
                         {t("contact.form.serviceOptions.seo")}
-                      </option>
-                      <option value="other">
+                      </SelectItem>
+                      <SelectItem value="other">
                         {t("contact.form.serviceOptions.other")}
-                      </option>
-                    </select>
+                      </SelectItem>
+                    </Select>
                   </div>
                   <div>
                     <label
@@ -304,23 +304,33 @@ export function ContactSection() {
                         handleInteraction();
                       }}
                       disabled={isSubmitting}
-                      className="mt-1 h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary"
+                      className="mt-1 h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary cursor-pointer"
                       required
                     />
-                    <label
-                      htmlFor="privacyConsent"
-                      className="text-sm text-muted-foreground"
-                    >
-                      {t("contact.form.privacyConsent").split("[")[0]}
+                    <div className="text-sm text-muted-foreground leading-tight">
+                      <label 
+                        htmlFor="privacyConsent" 
+                        className="cursor-pointer select-none"
+                      >
+                        {t("contact.form.privacyConsent").split("[")[0]}
+                      </label>
                       <button
                         type="button"
-                        className="text-primary hover:underline"
-                        onClick={() => setPrivacyModalOpen(true)}
+                        className="text-primary hover:underline mx-1 inline-block"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setPrivacyModalOpen(true);
+                        }}
                       >
                         {t("legal.privacy.title")}
                       </button>
-                      {t("contact.form.privacyConsent").split("]")[1]}
-                    </label>
+                      <label 
+                        htmlFor="privacyConsent" 
+                        className="cursor-pointer select-none"
+                      >
+                        {t("contact.form.privacyConsent").split("]")[1]}
+                      </label>
+                    </div>
                   </div>
 
                   {/* hCaptcha - Lazy Loaded */}

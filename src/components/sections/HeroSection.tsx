@@ -42,7 +42,7 @@ export function HeroSection() {
                 height="35"
                 // @ts-ignore - fetchpriority is a valid attribute but React types might be outdated
                 fetchpriority="high"
-                className="h-8 md:h-10 lg:h-12 w-auto"
+                className="h-6 md:h-8 lg:h-10 w-auto"
               />
             </div>
 
@@ -53,9 +53,9 @@ export function HeroSection() {
           </div>
 
           {/* Main Heading - LCP Optimized (Removed Animations) */}
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-center">
             {t("hero.title")}
-          </h2>
+          </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto text-center">
             {t("hero.subtitle")}

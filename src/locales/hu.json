@@ -227,7 +227,8 @@
     "nextReference": {
       "title": "Te lehetsz a következő!",
       "description": "Dolgozzunk együtt a te projekteden. Keress meg az ötleteddel, és valósítsuk meg együtt!",
-      "category": "Új Projekt"
+      "category": "Új Projekt",
+      "cta": "Kérj ajánlatot"
     },
     "items": [
       {

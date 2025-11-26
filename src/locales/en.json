@@ -228,7 +228,8 @@
     "nextReference": {
       "title": "You Could Be Next!",
       "description": "Let's work together on your project. Contact me with your idea, and let's make it happen!",
-      "category": "New Project"
+      "category": "New Project",
+      "cta": "Get a Quote"
     },
     "items": [
       {

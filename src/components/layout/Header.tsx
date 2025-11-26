@@ -27,6 +27,24 @@ export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
+  const huMap: Record<string, string> = {
+    services: "szolgaltatasok",
+    process: "folyamat",
+    pricing: "arak",
+    references: "referenciak",
+    faq: "gyik",
+    contact: "kapcsolat",
+  };
+
+  const getHref = (sectionId: string) => {
+    if (sectionId === "home") return "/";
+    let path = sectionId;
+    if (i18n.language === "hu" && huMap[sectionId]) {
+      path = huMap[sectionId];
+    }
+    return `/${path}`;
+  };
+
   // Helper to get absolute position from top of document
   const getAbsoluteTop = (element: HTMLElement) => {
     let top = 0;
@@ -80,18 +98,8 @@ export function Header() {
   const scrollToSection = (sectionId: string) => {
     // Map section ID to URL path based on language
     let path = sectionId;
-    if (i18n.language === "hu") {
-      const huMap: Record<string, string> = {
-        services: "szolgaltatasok",
-        process: "folyamat",
-        pricing: "arak",
-        references: "referenciak",
-        faq: "gyik",
-        contact: "kapcsolat",
-      };
-      if (huMap[sectionId]) {
-        path = huMap[sectionId];
-      }
+    if (i18n.language === "hu" && huMap[sectionId]) {
+      path = huMap[sectionId];
     }
 
     const performScroll = () => {
@@ -155,21 +163,25 @@ export function Header() {
               loading="eager"
               // @ts-ignore - fetchpriority is a valid attribute but React types might be outdated
               fetchpriority="high"
-              className="h-6 md:h-8 w-auto"
+              className="h-4 md:h-6 w-auto"
             />
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-6">
             {navItems.map((item, index) => (
-              <m.button
+              <m.a
                 key={item}
+                href={getHref(item)}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                onClick={() => scrollToSection(item)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(item);
+                }}
                 className={cn(
-                  "text-sm font-medium transition-colors relative",
+                  "text-sm font-medium transition-colors relative cursor-pointer",
                   activeSection === item ? "text-primary" : "hover:text-primary"
                 )}
               >
@@ -181,7 +193,7 @@ export function Header() {
                     transition={{ type: "spring", stiffness: 380, damping: 30 }}
                   />
                 )}
-              </m.button>
+              </m.a>
             ))}
           </nav>
 
@@ -196,6 +208,9 @@ export function Header() {
               size="icon"
               className="md:hidden"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label={
+                isMobileMenuOpen ? t("nav.closeMenu") : t("nav.openMenu")
+              }
             >
               {isMobileMenuOpen ? (
                 <X className="h-5 w-5" />
@@ -242,8 +257,9 @@ export function Header() {
           >
             <nav className="container mx-auto px-4 py-4 flex flex-col gap-2">
               {navItems.map((item, index) => (
-                <m.button
+                <m.a
                   key={item}
+                  href={getHref(item)}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{
                     opacity: 1,
@@ -253,16 +269,19 @@ export function Header() {
                     },
                   }}
                   exit={{ opacity: 0, x: -20 }}
-                  onClick={() => scrollToSection(item)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection(item);
+                  }}
                   className={cn(
-                    "text-left py-2 px-4 rounded-md transition-colors",
+                    "text-left py-2 px-4 rounded-md transition-colors cursor-pointer block",
                     activeSection === item
                       ? "bg-primary/10 text-primary font-medium"
                       : "hover:bg-accent"
                   )}
                 >
                   {t(`nav.${item}`)}
-                </m.button>
+                </m.a>
               ))}
             </nav>
           </m.div>

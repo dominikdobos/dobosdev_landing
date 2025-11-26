@@ -11,10 +11,28 @@ interface FooterProps {
 }
 
 export function Footer({ onOpenPrivacy }: FooterProps) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { theme } = useTheme();
   const currentYear = new Date().getFullYear();
   const [impresszumOpen, setImpresszumOpen] = useState(false);
+
+  const huMap: Record<string, string> = {
+    services: "szolgaltatasok",
+    process: "folyamat",
+    pricing: "arak",
+    references: "referenciak",
+    faq: "gyik",
+    contact: "kapcsolat",
+  };
+
+  const getHref = (sectionId: string) => {
+    if (sectionId === "home") return "/";
+    let path = sectionId;
+    if (i18n.language === "hu" && huMap[sectionId]) {
+      path = huMap[sectionId];
+    }
+    return `/${path}`;
+  };
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -52,23 +70,27 @@ export function Footer({ onOpenPrivacy }: FooterProps) {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold mb-4">{t("footer.quickLinks")}</h4>
+            <h3 className="font-semibold mb-4">{t("footer.quickLinks")}</h3>
             <nav className="flex flex-col gap-2">
               {navItems.map((item) => (
-                <button
+                <a
                   key={item}
-                  onClick={() => scrollToSection(item)}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors text-left"
+                  href={getHref(item)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection(item);
+                  }}
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors text-left block py-2"
                 >
                   {t(`nav.${item}`)}
-                </button>
+                </a>
               ))}
             </nav>
           </div>
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-semibold mb-4">{t("nav.contact")}</h4>
+            <h3 className="font-semibold mb-4">{t("nav.contact")}</h3>
             <div className="flex flex-col gap-3 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-primary" />
@@ -96,19 +118,19 @@ export function Footer({ onOpenPrivacy }: FooterProps) {
 
             {/* Legal Links */}
             <div className="mt-6">
-              <h4 className="font-semibold mb-3 text-sm">
+              <h3 className="font-semibold mb-3 text-sm">
                 {t("footer.legalInfo")}
-              </h4>
+              </h3>
               <nav className="flex flex-col gap-2">
                 <button
                   onClick={() => setImpresszumOpen(true)}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors text-left"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors text-left py-2"
                 >
                   {t("legal.impresszum.title")}
                 </button>
                 <button
                   onClick={onOpenPrivacy}
-                  className="text-sm text-muted-foreground hover:text-primary transition-colors text-left"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors text-left py-2"
                 >
                   {t("legal.privacy.title")}
                 </button>

@@ -10,7 +10,7 @@
     --card-foreground: 20 14.3% 4.1%;
     --popover: 0 0% 100%;
     --popover-foreground: 20 14.3% 4.1%;
-    --primary: 17 88% 56%;
+    --primary: 17 88% 48%;
     --primary-foreground: 0 0% 100%;
     --secondary: 14 80% 50%;
     --secondary-foreground: 0 0% 100%;
@@ -33,7 +33,7 @@
     --card-foreground: 60 9.1% 97.8%;
     --popover: 20 14.3% 4.1%;
     --popover-foreground: 60 9.1% 97.8%;
-    --primary: 17 88% 56%;
+    --primary: 17 88% 48%;
     --primary-foreground: 0 0% 100%;
     --secondary: 14 80% 50%;
     --secondary-foreground: 0 0% 100%;
@@ -73,6 +73,15 @@ body {
   overflow-x: hidden;
 }
 
+/* Utility to hide scrollbar on specific elements */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* Reduce motion for accessibility */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -91,4 +100,3 @@ body {
   contain-intrinsic-size: 1000px; /* Approximation of section height */
   min-height: 500px; /* Prevent layout collapse before rendering */
 }
-
